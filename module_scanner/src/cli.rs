@@ -36,7 +36,7 @@ pub fn scan(target: &str) -> Result<(), Error> {
     let dns_resolver = dns::new_resolver();
 
     //set up params for the concurrency
-    let subdomains_concurrency = 20;
+    let subdomains_concurrency = 50;
     let dns_concurrency = 100;
     let ports_concurrency = 200;
     let vulnerabilities_concurrency = 20;
@@ -59,7 +59,10 @@ pub fn scan(target: &str) -> Result<(), Error> {
         let mut subdomains: Vec<String> = stream::iter(subdomains_modules.into_iter())
             .map(|module| async move {
                 match module.enumerate(target).await {
-                    Ok(new_subdomains) => Some(new_subdomains),
+                    Ok(new_subdomains) => {
+                        println!("Found new subdomains {:?} using module {}", new_subdomains, module.name());
+                        Some(new_subdomains)
+                    },
                     Err(err) => {
                         log::error!("subdomains/{}: {}", module.name(), err);
                         None

@@ -12,7 +12,8 @@ pub fn all_http_modules() -> Vec<Box<dyn HttpModule>> {
 }
 
 pub fn all_subdomains_modules() -> Vec<Box<dyn SubdomainModule>> {
-    return vec![Box::new(subdomains::Crtsh::new())];
+    return vec![Box::new(subdomains::Crtsh::new()),
+                Box::new(subdomains::WebArchive::new())];
 }
 
 pub trait Module {
