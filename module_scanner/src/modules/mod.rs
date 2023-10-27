@@ -7,7 +7,9 @@ mod subdomains;
 
 pub fn all_http_modules() -> Vec<Box<dyn HttpModule>> {
     return vec![
-        Box::new(http::GitConfigDisclosure::new())
+        Box::new(http::GitConfigDisclosure::new()),
+        Box::new(http::ElasticsearchUnauthenticatedAccess::new()),
+        Box::new(http::EtcdUnauthenticatedAccess::new()),
     ];
 }
 
@@ -73,7 +75,7 @@ pub enum HttpFinding {
     GitHeadDisclosure(String),
     GitDirectoryDisclosure(String),
     GitConfigDisclosure(String),
-    EtcUnauthenticatedAccess(String),
+    EtcdUnauthenticatedAccess(String),
     Cve2017_9506(String),
     Cve2018_7600(String),
     ElasticsearchUnauthenticatedAccess(String),
