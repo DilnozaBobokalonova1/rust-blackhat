@@ -1,0 +1,1 @@
+Collect<futures::stream::FilterMap<BufferUnordered<futures::stream::Map<futures::stream::Iter<std::vec::IntoIter<Box<dyn SubdomainModule>>>, [closure@src/cli.rs:52:18: 52:26]>>, [async block@src/cli.rs:62:34: 62:50], [closure@src/cli.rs:62:25: 62:33]>, Vec<Vec<std::string::String>>>

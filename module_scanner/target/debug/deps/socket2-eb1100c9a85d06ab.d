@@ -1,0 +1,9 @@
+/Users/dilnozabobokalonova/rust-blackhat/module_scanner/target/debug/deps/socket2-eb1100c9a85d06ab.rmeta: /Users/dilnozabobokalonova/.cargo/registry/src/index.crates.io-6f17d22bba15001f/socket2-0.5.4/src/lib.rs /Users/dilnozabobokalonova/.cargo/registry/src/index.crates.io-6f17d22bba15001f/socket2-0.5.4/src/sockaddr.rs /Users/dilnozabobokalonova/.cargo/registry/src/index.crates.io-6f17d22bba15001f/socket2-0.5.4/src/socket.rs /Users/dilnozabobokalonova/.cargo/registry/src/index.crates.io-6f17d22bba15001f/socket2-0.5.4/src/sockref.rs /Users/dilnozabobokalonova/.cargo/registry/src/index.crates.io-6f17d22bba15001f/socket2-0.5.4/src/sys/unix.rs
+
+/Users/dilnozabobokalonova/rust-blackhat/module_scanner/target/debug/deps/socket2-eb1100c9a85d06ab.d: /Users/dilnozabobokalonova/.cargo/registry/src/index.crates.io-6f17d22bba15001f/socket2-0.5.4/src/lib.rs /Users/dilnozabobokalonova/.cargo/registry/src/index.crates.io-6f17d22bba15001f/socket2-0.5.4/src/sockaddr.rs /Users/dilnozabobokalonova/.cargo/registry/src/index.crates.io-6f17d22bba15001f/socket2-0.5.4/src/socket.rs /Users/dilnozabobokalonova/.cargo/registry/src/index.crates.io-6f17d22bba15001f/socket2-0.5.4/src/sockref.rs /Users/dilnozabobokalonova/.cargo/registry/src/index.crates.io-6f17d22bba15001f/socket2-0.5.4/src/sys/unix.rs
+
+/Users/dilnozabobokalonova/.cargo/registry/src/index.crates.io-6f17d22bba15001f/socket2-0.5.4/src/lib.rs:
+/Users/dilnozabobokalonova/.cargo/registry/src/index.crates.io-6f17d22bba15001f/socket2-0.5.4/src/sockaddr.rs:
+/Users/dilnozabobokalonova/.cargo/registry/src/index.crates.io-6f17d22bba15001f/socket2-0.5.4/src/socket.rs:
+/Users/dilnozabobokalonova/.cargo/registry/src/index.crates.io-6f17d22bba15001f/socket2-0.5.4/src/sockref.rs:
+/Users/dilnozabobokalonova/.cargo/registry/src/index.crates.io-6f17d22bba15001f/socket2-0.5.4/src/sys/unix.rs:
