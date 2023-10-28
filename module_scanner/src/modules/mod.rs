@@ -10,6 +10,8 @@ pub fn all_http_modules() -> Vec<Box<dyn HttpModule>> {
         Box::new(http::GitConfigDisclosure::new()),
         Box::new(http::ElasticsearchUnauthenticatedAccess::new()),
         Box::new(http::EtcdUnauthenticatedAccess::new()),
+        Box::new(http::DsStoreDisclosure::new()),
+        Box::new(http::DotEnvDisclosure::new()),
     ];
 }
 

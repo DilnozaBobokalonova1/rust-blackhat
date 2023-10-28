@@ -43,9 +43,10 @@ impl HttpModule for ElasticsearchUnauthenticatedAccess {
         let res = http_client.get(&url).send().await?;
 
         if !res.status().is_success() {
+            log::info!("Couldn't retrieve result for ES search");
             return Ok(None);
         }
-
+        log::info!("ES res looks as the following {:?}", res);
         let info: ElasticsearchInfo = match res.json().await {
             Ok(info) => {
                 println!("Found Elasticsearch info {:?}", info);

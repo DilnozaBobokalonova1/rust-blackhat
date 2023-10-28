@@ -4,3 +4,7 @@ mod elasticsearch_unauthenticated_access;
 pub use elasticsearch_unauthenticated_access::ElasticsearchUnauthenticatedAccess;
 mod etcd_unauthenticated_access;
 pub use etcd_unauthenticated_access::EtcdUnauthenticatedAccess;
+mod ds_store_disclosure;
+pub use ds_store_disclosure::DsStoreDisclosure;
+mod dotenv_disclosure;
+pub use dotenv_disclosure::DotEnvDisclosure;
