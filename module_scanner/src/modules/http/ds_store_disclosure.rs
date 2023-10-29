@@ -45,7 +45,7 @@ impl HttpModule for DsStoreDisclosure {
         let res = http_client.get(&url).send().await?;
 
         if !res.status().is_success() {
-            log::info!("Was not able to retrieve any open .DS_Store for {}", endpoint);
+            // log::info!("Was not able to retrieve any open .DS_Store for {}", endpoint);
             return Ok(None);
         }
 

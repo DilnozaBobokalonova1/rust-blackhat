@@ -12,3 +12,5 @@ mod directory_listing_disclosure;
 pub use directory_listing_disclosure::DirectoryListingDisclosure;
 mod gitlab_open_registrations;
 pub use gitlab_open_registrations::GitLabOpenRegistrations;
+mod prometheus_dashboard_unauthenticated_access;
+pub use prometheus_dashboard_unauthenticated_access::PrometheusDshboardUnauthenticatedAccess;

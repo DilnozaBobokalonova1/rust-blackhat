@@ -137,7 +137,8 @@ pub fn scan(target: &str) -> Result<(), Error> {
                 async move {
                     match module.scan(&http_client, &target).await {
                         Ok(Some(finding)) => println!("{:?}", &finding),
-                        Ok(None) => println!("No Vulnerability found for target {} and module {}", target, module.name()),
+                        Ok(None) => (),
+                        // println!("No Vulnerability found for target {} and module {}", target, module.name()),
                         Err(err) => log::debug!("Error: {}", err),
                     }
                 }

@@ -14,6 +14,7 @@ pub fn all_http_modules() -> Vec<Box<dyn HttpModule>> {
         Box::new(http::DotEnvDisclosure::new()),
         Box::new(http::DirectoryListingDisclosure::new()),
         Box::new(http::GitLabOpenRegistrations::new()),
+        Box::new(http::PrometheusDshboardUnauthenticatedAccess::new()),
     ];
 }
 
