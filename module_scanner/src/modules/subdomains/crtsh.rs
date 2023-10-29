@@ -50,7 +50,9 @@ impl SubdomainModule for Crtsh {
         let subdomains: HashSet<String> = crtsh_entries
             .into_iter()
             .map(|entry| {
-                entry.name_value.split("\n")
+                entry
+                    .name_value
+                    .split("\n")
                     .map(|subdomain| subdomain.trim().to_string())
                     .collect::<Vec<String>>()
             })

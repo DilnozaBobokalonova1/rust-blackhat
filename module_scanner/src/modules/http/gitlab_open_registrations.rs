@@ -1,6 +1,6 @@
 use crate::{
     modules::{HttpFinding, HttpModule, Module},
-    Error
+    Error,
 };
 
 use async_trait::async_trait;

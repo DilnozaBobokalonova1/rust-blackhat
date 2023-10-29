@@ -11,7 +11,6 @@ use crate::modules::Subdomain;
 use crate::ports;
 use crate::{modules, Error};
 
-
 pub fn modules() {
     let http_modules = modules::all_http_modules();
     let subdomains_modules = modules::all_subdomains_modules();
@@ -46,12 +45,12 @@ pub fn scan(target: &str) -> Result<(), Error> {
 
     //retrieve all the subdomain modules
     let subdomains_modules = modules::all_subdomains_modules();
-    
+
     //start the tokio runtime for async enablement
     let runtime = tokio::runtime::Builder::new_multi_thread()
-    .enable_all()
-    .build()
-    .expect("Building tokio's runtime");
+        .enable_all()
+        .build()
+        .expect("Building tokio's runtime");
 
     //block the current thread until it finishes executing
     runtime.block_on(async move {
@@ -60,9 +59,13 @@ pub fn scan(target: &str) -> Result<(), Error> {
             .map(|module| async move {
                 match module.enumerate(target).await {
                     Ok(new_subdomains) => {
-                        println!("Found new subdomains {:?} using module {}", new_subdomains, module.name());
+                        println!(
+                            "Found new subdomains {:?} using module {}",
+                            new_subdomains,
+                            module.name()
+                        );
                         Some(new_subdomains)
-                    },
+                    }
                     Err(err) => {
                         log::error!("subdomains/{}: {}", module.name(), err);
                         None
@@ -142,7 +145,8 @@ pub fn scan(target: &str) -> Result<(), Error> {
                         Err(err) => log::debug!("Error: {}", err),
                     }
                 }
-            }).await;
+            })
+            .await;
     });
 
     let scan_duration = scan_start.elapsed();
@@ -150,4 +154,3 @@ pub fn scan(target: &str) -> Result<(), Error> {
 
     Ok(())
 }
-

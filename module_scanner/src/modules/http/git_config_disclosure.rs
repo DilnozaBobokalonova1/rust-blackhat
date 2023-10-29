@@ -14,19 +14,17 @@ impl GitConfigDisclosure {
     pub fn new() -> Self {
         GitConfigDisclosure {
             git_config_regex: Regex::new(r#"\[branch "[^"]*"\]"#)
-            .expect("compiling http/git_config_disclosure regexp"),
+                .expect("compiling http/git_config_disclosure regexp"),
         }
     }
 
     async fn is_git_config_file(&self, content: String) -> Result<bool, Error> {
         let git_config_regex = self.git_config_regex.clone();
-        let res = tokio::task::spawn_blocking(move || 
-            git_config_regex.is_match(&content)).await?;
+        let res = tokio::task::spawn_blocking(move || git_config_regex.is_match(&content)).await?;
 
         Ok(res)
     }
 }
-
 
 impl Module for GitConfigDisclosure {
     fn name(&self) -> String {

@@ -33,18 +33,19 @@ impl HttpModule for EtcdUnauthenticatedAccess {
     ) -> Result<Option<HttpFinding>, Error> {
         let url = format!("{}/version", &endpoint);
         let res = http_client.get(&url).send().await?;
-        
+
         if !res.status().is_success() {
             return Ok(None);
         }
 
         let body = res.text().await?;
-        if body.contains(r#""etcdserver""#) 
+        if body.contains(r#""etcdserver""#)
             && body.contains(r#""etcdcluster""#)
-            && body.chars().count() < 200 {
-                return Ok(Some(HttpFinding::EtcdUnauthenticatedAccess(url)));
-            }
+            && body.chars().count() < 200
+        {
+            return Ok(Some(HttpFinding::EtcdUnauthenticatedAccess(url)));
+        }
 
-            Ok(None)
+        Ok(None)
     }
 }

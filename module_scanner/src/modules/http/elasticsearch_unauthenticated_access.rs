@@ -1,6 +1,6 @@
 use crate::{
     modules::{HttpFinding, HttpModule, Module},
-    Error
+    Error,
 };
 use async_trait::async_trait;
 use reqwest::Client;
@@ -9,7 +9,6 @@ use serde::{Deserialize, Serialize};
 pub struct ElasticsearchUnauthenticatedAccess {}
 
 impl ElasticsearchUnauthenticatedAccess {
-
     pub fn new() -> Self {
         ElasticsearchUnauthenticatedAccess {}
     }
@@ -32,12 +31,9 @@ struct ElasticsearchInfo {
     pub tagline: String,
 }
 
-
 // a = 6
 // gyfkuyguytftyffy
 // gftft
-
-
 
 #[async_trait]
 impl HttpModule for ElasticsearchUnauthenticatedAccess {
@@ -57,12 +53,12 @@ impl HttpModule for ElasticsearchUnauthenticatedAccess {
         let info: ElasticsearchInfo = match res.json().await {
             Ok(info) => {
                 println!("Found Elasticsearch info {:?}", info);
-                inf
-            },
+                info
+            }
             Err(_) => {
                 log::error!("Error retrieving elasticSearch info for {}", endpoint);
-                return Ok(None)
-            },
+                return Ok(None);
+            }
         };
 
         if info.tagline.to_lowercase().contains("you know, for search") {

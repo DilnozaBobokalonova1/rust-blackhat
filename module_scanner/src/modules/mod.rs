@@ -15,21 +15,24 @@ pub fn all_http_modules() -> Vec<Box<dyn HttpModule>> {
         Box::new(http::DirectoryListingDisclosure::new()),
         Box::new(http::GitLabOpenRegistrations::new()),
         Box::new(http::PrometheusDshboardUnauthenticatedAccess::new()),
+        Box::new(http::TraefikDashboardUnauthenticatedAccess::new()),
     ];
 }
 
 pub fn all_subdomains_modules() -> Vec<Box<dyn SubdomainModule>> {
-    return vec![Box::new(subdomains::Crtsh::new()),
-                Box::new(subdomains::WebArchive::new())];
+    return vec![
+        Box::new(subdomains::Crtsh::new()),
+        Box::new(subdomains::WebArchive::new()),
+    ];
 }
 
 pub trait Module {
     fn name(&self) -> String;
     fn description(&self) -> String;
 }
-                                /**                         **/
-                                /**        SUBDOMAINS       **/
-                                /**                         **/
+/**                         **/
+/**        SUBDOMAINS       **/
+/**                         **/
 /**
  * Role: find all subdomains for a given domain and source.
  */
@@ -48,12 +51,12 @@ pub struct Subdomain {
 pub struct Port {
     pub port: u16,
     pub is_open: bool,
-    pub findings: Vec<HttpFinding>
+    pub findings: Vec<HttpFinding>,
 }
 
-                                /**                         **/
-                                /**           HTTP          **/
-                                /**                         **/
+/**                         **/
+/**           HTTP          **/
+/**                         **/
 
 /**
  * Role: for a given endpoint, check if a given vulnerability can be found.
@@ -85,4 +88,3 @@ pub enum HttpFinding {
     Cve2018_7600(String),
     ElasticsearchUnauthenticatedAccess(String),
 }
-

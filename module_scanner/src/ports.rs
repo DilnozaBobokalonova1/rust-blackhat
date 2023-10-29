@@ -9,7 +9,6 @@ use std::time::Duration;
 use tokio::net::TcpStream;
 
 pub async fn scan_ports(concurrency: usize, mut subdomain: Subdomain) -> Subdomain {
-
     let socket_addresses: Vec<SocketAddr> = format!("{}:1024", subdomain.domain)
         .to_socket_addrs()
         .expect("port scanner: Creating socket address")

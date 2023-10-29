@@ -13,9 +13,8 @@ pub struct DirectoryListingDisclosure {
 impl DirectoryListingDisclosure {
     pub fn new() -> Self {
         DirectoryListingDisclosure {
-            dir_listing_regex: Regex::new(
-                r"<title>Index of .*</title>"
-            ).expect("compiling http/directory_listing regexp"),
+            dir_listing_regex: Regex::new(r"<title>Index of .*</title>")
+                .expect("compiling http/directory_listing regexp"),
         }
     }
 

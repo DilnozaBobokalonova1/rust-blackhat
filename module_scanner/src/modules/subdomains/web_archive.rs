@@ -1,6 +1,6 @@
 use crate::{
     modules::{Module, SubdomainModule},
-    Error
+    Error,
 };
 
 use async_trait::async_trait;
@@ -46,7 +46,10 @@ impl SubdomainModule for WebArchive {
             Err(_) => return Err(Error::InvalidHttpResponse(self.name())),
         };
 
-        println!("the following is the web archive urls {:?}", web_archive_urls);
+        println!(
+            "the following is the web archive urls {:?}",
+            web_archive_urls
+        );
 
         let subdomains: HashSet<String> = web_archive_urls
             .0
@@ -54,21 +57,18 @@ impl SubdomainModule for WebArchive {
             .flatten()
             //remove the "original" in order to avoid the parsing throwing invalid base url error
             .filter(|url_entry| url_entry != &"original")
-            .filter_map(
-                |url| {
-                     match Url::parse(&url) {
-                        Ok(parsed_url) => {
-                            println!("url parsed successfully {}", parsed_url);
-                            Some(parsed_url.host_str().map(|host| host.to_string()))
-                        }
-                        Err(err) => {
-                            log::error!("{}: error parsing url {}: {}", self.name(), url, err);
-                            None
-                        }
-                    }
-                })
-                .map(|url_val| url_val.unwrap())
-                .collect();
+            .filter_map(|url| match Url::parse(&url) {
+                Ok(parsed_url) => {
+                    println!("url parsed successfully {}", parsed_url);
+                    Some(parsed_url.host_str().map(|host| host.to_string()))
+                }
+                Err(err) => {
+                    log::error!("{}: error parsing url {}: {}", self.name(), url, err);
+                    None
+                }
+            })
+            .map(|url_val| url_val.unwrap())
+            .collect();
 
         Ok(subdomains.into_iter().collect())
     }

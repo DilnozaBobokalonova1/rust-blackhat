@@ -14,7 +14,6 @@ impl PrometheusDshboardUnauthenticatedAccess {
 }
 
 impl Module for PrometheusDshboardUnauthenticatedAccess {
-
     fn name(&self) -> String {
         String::from("http/prometheus_dashboard_unauthenticated_access")
     }
@@ -25,7 +24,6 @@ impl Module for PrometheusDshboardUnauthenticatedAccess {
 
 #[async_trait]
 impl HttpModule for PrometheusDshboardUnauthenticatedAccess {
-
     async fn scan(
         &self,
         http_client: &Client,
@@ -39,11 +37,14 @@ impl HttpModule for PrometheusDshboardUnauthenticatedAccess {
         }
 
         let body = res.text().await?;
-        if body.contains(
-            r#"<title>Prometheus Time Series Collection and Processing Server</title>"#) {
-            return Ok(Some(HttpFinding::PrometheusDshboardUnauthenticatedAccess(url)));
+        if body
+            .contains(r#"<title>Prometheus Time Series Collection and Processing Server</title>"#)
+        {
+            return Ok(Some(HttpFinding::PrometheusDshboardUnauthenticatedAccess(
+                url,
+            )));
         }
-        
+
         Ok(None)
     }
 }
