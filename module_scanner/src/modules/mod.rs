@@ -13,6 +13,7 @@ pub fn all_http_modules() -> Vec<Box<dyn HttpModule>> {
         Box::new(http::DsStoreDisclosure::new()),
         Box::new(http::DotEnvDisclosure::new()),
         Box::new(http::DirectoryListingDisclosure::new()),
+        Box::new(http::GitLabOpenRegistrations::new()),
     ];
 }
 
@@ -74,7 +75,7 @@ pub enum HttpFinding {
     TraefikDashboardUnauthenticatedAccess(String),
     PrometheusDshboardUnauthenticatedAccess(String),
     KibanaUnauthenticatedAccess(String),
-    GitlabOpenResgitrations(String),
+    GitLabOpenRegistrations(String),
     GitHeadDisclosure(String),
     GitDirectoryDisclosure(String),
     GitConfigDisclosure(String),
