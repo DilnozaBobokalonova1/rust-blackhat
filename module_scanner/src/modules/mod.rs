@@ -12,6 +12,7 @@ pub fn all_http_modules() -> Vec<Box<dyn HttpModule>> {
         Box::new(http::EtcdUnauthenticatedAccess::new()),
         Box::new(http::DsStoreDisclosure::new()),
         Box::new(http::DotEnvDisclosure::new()),
+        Box::new(http::DirectoryListingDisclosure::new()),
     ];
 }
 
