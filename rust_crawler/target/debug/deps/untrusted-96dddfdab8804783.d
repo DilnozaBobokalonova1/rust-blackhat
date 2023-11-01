@@ -1,0 +1,10 @@
+/Users/dilnozabobokalonova/rust-blackhat/rust_crawler/target/debug/deps/untrusted-96dddfdab8804783.rmeta: /Users/dilnozabobokalonova/.cargo/registry/src/index.crates.io-6f17d22bba15001f/untrusted-0.9.0/src/lib.rs /Users/dilnozabobokalonova/.cargo/registry/src/index.crates.io-6f17d22bba15001f/untrusted-0.9.0/src/input.rs /Users/dilnozabobokalonova/.cargo/registry/src/index.crates.io-6f17d22bba15001f/untrusted-0.9.0/src/no_panic.rs /Users/dilnozabobokalonova/.cargo/registry/src/index.crates.io-6f17d22bba15001f/untrusted-0.9.0/src/reader.rs
+
+/Users/dilnozabobokalonova/rust-blackhat/rust_crawler/target/debug/deps/libuntrusted-96dddfdab8804783.rlib: /Users/dilnozabobokalonova/.cargo/registry/src/index.crates.io-6f17d22bba15001f/untrusted-0.9.0/src/lib.rs /Users/dilnozabobokalonova/.cargo/registry/src/index.crates.io-6f17d22bba15001f/untrusted-0.9.0/src/input.rs /Users/dilnozabobokalonova/.cargo/registry/src/index.crates.io-6f17d22bba15001f/untrusted-0.9.0/src/no_panic.rs /Users/dilnozabobokalonova/.cargo/registry/src/index.crates.io-6f17d22bba15001f/untrusted-0.9.0/src/reader.rs
+
+/Users/dilnozabobokalonova/rust-blackhat/rust_crawler/target/debug/deps/untrusted-96dddfdab8804783.d: /Users/dilnozabobokalonova/.cargo/registry/src/index.crates.io-6f17d22bba15001f/untrusted-0.9.0/src/lib.rs /Users/dilnozabobokalonova/.cargo/registry/src/index.crates.io-6f17d22bba15001f/untrusted-0.9.0/src/input.rs /Users/dilnozabobokalonova/.cargo/registry/src/index.crates.io-6f17d22bba15001f/untrusted-0.9.0/src/no_panic.rs /Users/dilnozabobokalonova/.cargo/registry/src/index.crates.io-6f17d22bba15001f/untrusted-0.9.0/src/reader.rs
+
+/Users/dilnozabobokalonova/.cargo/registry/src/index.crates.io-6f17d22bba15001f/untrusted-0.9.0/src/lib.rs:
+/Users/dilnozabobokalonova/.cargo/registry/src/index.crates.io-6f17d22bba15001f/untrusted-0.9.0/src/input.rs:
+/Users/dilnozabobokalonova/.cargo/registry/src/index.crates.io-6f17d22bba15001f/untrusted-0.9.0/src/no_panic.rs:
+/Users/dilnozabobokalonova/.cargo/registry/src/index.crates.io-6f17d22bba15001f/untrusted-0.9.0/src/reader.rs:
