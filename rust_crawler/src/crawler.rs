@@ -84,10 +84,11 @@ impl Crawler {
 
             if new_urls_tx.capacity() == crawling_queue_capacity //new_urls channel is empty
                 && urls_to_visit_tx.capacity() == crawling_queue_capacity //urls_to_visit channel is empty
-                && active_spiders.load(Ordering::SeqCst) == 0 {
-                    break;
+                && active_spiders.load(Ordering::SeqCst) == 0
+            {
+                break;
             }
-            
+
             sleep(Duration::from_millis(5)).await;
         }
 

@@ -57,6 +57,7 @@ impl super::Spider for GithubSpider {
         String::from("github")
     }
 
+    //https://api.github.com/orgs/google/public_members?per_page=100&page=1) does seem to get sent
     fn start_urls(&self) -> Vec<String> {
         vec!["https://api.github.com/orgs/google/public_members?per_page=100&page=1".to_string()]
     }

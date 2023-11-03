@@ -1,4 +1,4 @@
-use clap::{Arg, Command, ArgAction};
+use clap::{Arg, ArgAction, Command};
 use std::{env, sync::Arc, time::Duration};
 
 mod crawler;
@@ -10,13 +10,12 @@ use error::Error;
 
 #[tokio::main]
 async fn main() -> Result<(), anyhow::Error> {
-
     let cli = Command::new(clap::crate_name!())
         .version(clap::crate_version!())
         .about(clap::crate_description!())
         .subcommand(Command::new("spiders").about("List all spiders"))
-        .subcommand(Command::new("run").about("Run a spider")
-            .arg(
+        .subcommand(
+            Command::new("run").about("Run a spider").arg(
                 Arg::new("spider")
                     .short('s')
                     .long("spider")
@@ -50,16 +49,15 @@ async fn main() -> Result<(), anyhow::Error> {
                 let spider = Arc::new(spiders::github::GithubSpider::new());
                 crawler.run(spider).await;
             }
-            // "quotes" => {
-            //     let spider = spiders::quotes::QuotesSpider::new().await?;
-            //     let spider = Arc::new(spider);
-            //     crawler.run(spider).await;
-            // }
+            "quotes" => {
+                let spider = spiders::quotes::QuotesSpider::new().await?;
+                let spider = Arc::new(spider);
+                crawler.run(spider).await;
+            }
 
             _ => return Err(Error::InvalidSpider(spider_name.to_string()).into()),
         }
     }
-
 
     Ok(())
 }
