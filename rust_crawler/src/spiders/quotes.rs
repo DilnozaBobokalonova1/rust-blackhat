@@ -18,7 +18,7 @@ impl QuotesSpider {
         caps.insert("goog:chromeOptions".to_string(), chrome_opts);
         let webdriver_client = ClientBuilder::rustls()
             .capabilities(caps)
-            .connect("http://localhost:4444")
+            .connect("http://localhost:9515")
             .await?;
 
         Ok(QuotesSpider {
@@ -87,6 +87,12 @@ impl super::Spider for QuotesSpider {
             .collect::<Vec<String>>();
 
         Ok((items, next_page_link))
+    }
+    
+    async fn process(&self, item: Self::Item) -> Result<(), Error> {
+        println!("{}", item.quote);
+        println!("by {}/n", item.author);
+        Ok(())
     }
 }
 
