@@ -18,7 +18,7 @@ impl QuotesSpider {
         caps.insert("goog:chromeOptions".to_string(), chrome_opts);
         let webdriver_client = ClientBuilder::rustls()
             .capabilities(caps)
-            .connect("http://localhost:9515")
+            .connect("http://localhost:4444")
             .await?;
 
         Ok(QuotesSpider {
