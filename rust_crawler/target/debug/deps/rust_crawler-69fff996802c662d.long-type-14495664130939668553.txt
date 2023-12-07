@@ -1,0 +1,1 @@
+std::iter::Map<std::iter::FilterMap<select::document::Find<'_, Descendant<Attr<&str, &str>, Name<&str>>>, [closure@src/spiders/cvedetails.rs:115:25: 115:28]>, [closure@src/spiders/cvedetails.rs:116:18: 116:23]>

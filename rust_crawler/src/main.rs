@@ -41,10 +41,10 @@ async fn main() -> Result<(), anyhow::Error> {
 
         log::info!("spider name is {}", spider_name);
         match spider_name.as_str() {
-            // "cvedetails" => {
-            //     let spider = Arc::new(spiders::cvedetails::CveDetailsSpider::new());
-            //     crawler.run(spider).await;
-            // }
+            "cvedetails" => {
+                let spider = Arc::new(spiders::cvedetails::CveDetailsSpider::new());
+                crawler.run(spider).await;
+            }
             "github" => {
                 let spider = Arc::new(spiders::github::GithubSpider::new());
                 crawler.run(spider).await;
