@@ -34,6 +34,7 @@ impl Crawler {
     }
 
     pub async fn run<T: Send + 'static>(&self, spider: Arc<dyn Spider<Item = T>>) {
+        //crawling_concurrency = 2, processing_concurrency = 500
         let mut visited_urls = HashSet::<String>::new();
         let crawling_concurrency = self.crawling_concurrency;
         let crawling_queue_capacity = crawling_concurrency * 400;
@@ -47,10 +48,13 @@ impl Crawler {
         let barrier = Arc::new(Barrier::new(3));
 
         for url in spider.start_urls() {
+            //we insert a specific url from the vector into the visited_urls set. note: we are cloning it due to borrowing rules
             visited_urls.insert(url.clone());
+            //now the sender transmits the url to be visited
             let _ = urls_to_visit_tx.send(url).await;
         }
 
+        //in the meantime, the processors get launched for the spider
         self.launch_processors(
             processing_concurrency,
             spider.clone(),
@@ -77,14 +81,15 @@ impl Crawler {
                     if !visited_urls.contains(&url) {
                         visited_urls.insert(url.clone());
                         log::debug!("queueing: {}", url);
+                        //here we send the new url over to the receiver that's listening & used within scrapers method below
                         let _ = urls_to_visit_tx.send(url).await;
                     }
                 }
             }
 
-            if new_urls_tx.capacity() == crawling_queue_capacity //new_urls channel is empty
+            if new_urls_tx.capacity() == crawling_queue_capacity //the receiver has received urls at max capacity
                 && urls_to_visit_tx.capacity() == crawling_queue_capacity //urls_to_visit channel is empty
-                && active_spiders.load(Ordering::SeqCst) == 0
+                && active_spiders.load(Ordering::SeqCst) == 0 //no spiders are running anymore
             {
                 break;
             }
@@ -103,11 +108,13 @@ impl Crawler {
     fn launch_processors<T: Send + 'static>(
         &self,
         concurrency: usize,
+        //Spider trait passed as dyn in order to avoid specifying the exact type during compile time
         spider: Arc<dyn Spider<Item = T>>,
         items: mpsc::Receiver<T>,
         barrier: Arc<Barrier>,
     ) {
         tokio::spawn(async move {
+            //we specify this to be a streamer since the items will be on receiving values from the Sender on the go
             tokio_stream::wrappers::ReceiverStream::new(items)
                 .for_each_concurrent(concurrency, |item| async {
                     let _ = spider.process(item).await;
@@ -130,17 +137,20 @@ impl Crawler {
         barrier: Arc<Barrier>,
     ) {
         tokio::spawn(async move {
+            //we now work with the urls that are being transmitted from the calling function for us to visit
             tokio_stream::wrappers::ReceiverStream::new(urls_to_visit)
                 .for_each_concurrent(concurrency, |queued_url| {
                     let queued_url = queued_url.clone();
                     async {
+                        //to keep count of the active spiders atomically
                         active_spiders.fetch_add(1, Ordering::SeqCst);
                         let mut urls = Vec::new();
                         let res = spider
+                            //for github for example, we visit the url & get its items and the next_page_urls
                             .scrape(queued_url.clone())
                             .await
                             .map_err(|err| {
-                                log::error!("{}", err);
+                                log::error!("scraping result error {}", err);
                                 err
                             })
                             .ok();

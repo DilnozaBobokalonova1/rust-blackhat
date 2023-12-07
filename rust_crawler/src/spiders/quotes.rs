@@ -27,6 +27,7 @@ impl QuotesSpider {
     }
 }
 
+#[derive(Debug)]
 pub struct QuotesItem {
     quote: String,
     author: String,
@@ -51,12 +52,15 @@ impl super::Spider for QuotesSpider {
             webdriver.goto(&url).await?;
             webdriver.source().await?
         };
+        println!("the html source for the quotes page is {}", html);
 
         let document = Document::from(html.as_str());
-
+        println!("the document looks as the following: {:?}", document);
+        
         let quotes = document.find(Class("quote"));
         for quote in quotes {
             let mut spans = quote.find(Name("span"));
+            println!("the spans for within quote doc is: {:?}", spans);
             let quote_span = spans.next().unwrap();
             let quote_str = quote_span.text().trim().to_string();
 
@@ -75,6 +79,7 @@ impl super::Spider for QuotesSpider {
                 author,
             });
         }
+        println!("the items we have for the quotes page are: {:?}", items);
 
         let next_page_link = document
             .find(
@@ -85,7 +90,7 @@ impl super::Spider for QuotesSpider {
             .filter_map(|n| n.attr("href"))
             .map(|url| self.normalize_url(url))
             .collect::<Vec<String>>();
-
+        println!("next page link looks as the following: {:?}", next_page_link);
         Ok((items, next_page_link))
     }
     
@@ -98,12 +103,13 @@ impl super::Spider for QuotesSpider {
 
 impl QuotesSpider {
     fn normalize_url(&self, url: &str) -> String {
-        let url = url.trim();
 
+        println!("passed in url to normalize looks as: {}", url);
+        let url = url.trim();
         if url.starts_with("/") {
             return format!("https://quotes.toscrape.com{}", url);
         }
-        
+        println!("after normalization: {}", url);
         url.to_string()
     }
 }
