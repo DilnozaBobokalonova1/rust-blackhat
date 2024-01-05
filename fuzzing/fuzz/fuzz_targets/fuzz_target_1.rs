@@ -2,7 +2,7 @@
 use libfuzzer_sys::fuzz_target;
 
 #[derive(Clone, Debug, arbitrary::Arbitrary)]
-struct MemcopyInput {
+pub struct MemcopyInput {
     dest: Vec<u8>,
     src: Vec<u8>,
     n: usize,

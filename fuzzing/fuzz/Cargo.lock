@@ -35,6 +35,10 @@ dependencies = [
 [[package]]
 name = "fuzzing"
 version = "0.1.0"
+dependencies = [
+ "arbitrary",
+ "libfuzzer-sys",
+]
 
 [[package]]
 name = "fuzzing-fuzz"
