@@ -17,19 +17,20 @@ unsafe fn syscall3(scnum: usize, arg1: usize, arg2: usize, arg3: usize) -> usize
         lateout("x8") ret,
         options(nostack),
     );
-    // println!("return value now is {}", ret);
+    
     ret
 }
 
 fn main() {
     unsafe {
         
-        syscall3(
+        let result = syscall3(
             SYS_WRITE,
             STDOUT,
             MESSAGE.as_ptr() as usize,
             MESSAGE.len() as usize,
         );
-        // println!("After syscall (second print) - x8: {}, x0: {}, x1: {}, x2: {}", SYS_WRITE, STDOUT, MESSAGE.as_ptr() as usize, MESSAGE.len() as usize);
+        println!("After syscall (second print) - x8: {}, x0: {}, x1: {}, x2: {}", SYS_WRITE, STDOUT, MESSAGE.as_ptr() as usize, MESSAGE.len() as usize);
+        println!("result is {}", result);
     };
 }
