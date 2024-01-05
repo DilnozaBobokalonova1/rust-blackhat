@@ -14,6 +14,7 @@ unsafe fn syscall3(scnum: usize, arg1: usize, arg2: usize, arg3: usize) -> usize
         inout("x0") arg1 => _,
         inout("x1") arg2 => _,
         inout("x2") arg3 => _,
+        //Indirect result location register
         lateout("x8") ret,
         options(nostack),
     );
