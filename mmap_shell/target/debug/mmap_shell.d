@@ -1,0 +1,1 @@
+/Users/dilnozabobokalonova/rust-blackhat/mmap_shell/target/debug/mmap_shell: /Users/dilnozabobokalonova/rust-blackhat/mmap_shell/src/../../shellcode.bin /Users/dilnozabobokalonova/rust-blackhat/mmap_shell/src/main.rs
