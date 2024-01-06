@@ -1,0 +1,1 @@
+/Users/dilnozabobokalonova/rust-blackhat/executor/target/debug/executor: /Users/dilnozabobokalonova/rust-blackhat/executor/src/../../shellcode.bin /Users/dilnozabobokalonova/rust-blackhat/executor/src/main.rs
