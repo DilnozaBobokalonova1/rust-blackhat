@@ -1,6 +1,6 @@
 use rayon::prelude::*;
 use reqwest::{blocking::Client, redirect};
-use std::{env, time::Duration};
+use std::{env, time::{Duration, Instant}};
 
 mod error;
 pub use error::Error;
@@ -29,6 +29,8 @@ fn main() -> Result<(), anyhow::Error> {
         .num_threads(256)
         .build()
         .unwrap();
+    //lets start the scan!
+    let scan_start = Instant::now();
 
     pool.install(|| {
         let scan_result: Vec<Subdomain> = subdomains::enumerate(&http_client, target)
@@ -37,6 +39,8 @@ fn main() -> Result<(), anyhow::Error> {
             .map(ports::scan_ports)
             .collect();
         
+        println!("Scan completed in {:?}", scan_start.elapsed());
+
         for subdomain in scan_result {
             println!("{}:", &subdomain.domain);
             for port in subdomain.open_ports {

@@ -45,9 +45,7 @@ async fn main() -> Result<(), anyhow::Error> {
 			}
 	}).await;
 
-	
-	let scan_duration = scan_start.elapsed();
-	println!("Scan completed in {:?}", scan_duration);
+	println!("Scan completed in {:?}", scan_start.elapsed());
 
 	let mutex_guard = res.lock().await;
 	for subdomain in mutex_guard.iter() {
