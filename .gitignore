@@ -1,0 +1,28 @@
+# Compiled files
+/target/
+
+# Rustdoc output
+/doc/
+
+# Cargo lock file (keep this if you're building a library)
+/Cargo.lock
+
+# Local configuration
+/.env
+
+# IDE - IntelliJ, VSCode, etc.
+.idea/
+*.iml
+.vscode/
+
+# macOS specific
+.DS_Store
+
+# Windows specific
+Thumbs.db
+Desktop.ini
+
+# Linux specific
+.*.swp
+*~
+
