@@ -1,5 +1,5 @@
 use anyhow::Ok;
-use futures::{stream, StreamExt, lock::Mutex, FutureExt};
+use futures::{stream, StreamExt, lock::Mutex};
 use reqwest::Client;
 use std::{
     env,
@@ -37,6 +37,7 @@ async fn main() -> Result<(), anyhow::Error> {
 
 	stream::iter(subdomains.into_iter()).for_each_concurrent(
 		subdomains_concurrency, |subdomain| {
+			//cloning of async reference counting pointer to empty mutable Vec
 			let res = res.clone();
 			async move {
 				let subdomain = ports::scan_ports(ports_concurrency, subdomain).await;

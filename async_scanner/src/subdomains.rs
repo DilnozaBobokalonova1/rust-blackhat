@@ -1,6 +1,6 @@
 use crate::{
     model::{CrtShEntry, Subdomain},
-    subdomains, Error,
+    Error,
 };
 use futures::stream;
 use futures::StreamExt;
@@ -9,14 +9,15 @@ use std::{collections::HashSet, time::Duration};
 use trust_dns_resolver::{
     config::{ResolverConfig, ResolverOpts},
     name_server::{GenericConnection, GenericConnectionProvider, TokioRuntime},
-    proto::rr::domain,
     AsyncResolver,
 };
 
+//explicitly define the type to not have to specify within parameter of resolver function
 type DnsResolver = AsyncResolver<GenericConnection, GenericConnectionProvider<TokioRuntime>>;
 
 pub async fn enumerate(http_client: &Client, target: &str) -> Result<Vec<Subdomain>, Error> {
     let entries: Vec<CrtShEntry> = http_client
+        //pass in target for which we want to locate subdomains & find their opened ports
         .get(&format!("https://crt.sh/?q=%25.{}&output=json", target))
         .send()
         .await?
@@ -41,6 +42,7 @@ pub async fn enumerate(http_client: &Client, target: &str) -> Result<Vec<Subdoma
         })
         .flatten()
         .filter(|subdomain: &String| subdomain != target)
+        //we don't want incorrectly entered subdomains so filter the asterisks 
         .filter(|subdomain: &String| !subdomain.contains("*"))
         .collect();
     subdomains.insert(target.to_string());
@@ -53,6 +55,7 @@ pub async fn enumerate(http_client: &Client, target: &str) -> Result<Vec<Subdoma
         .filter_map(|subdomain| {
             let dns_resolver = dns_resolver.clone();
             async move {
+                //ensure the IP exists for the given subdomain
                 if resolves(&dns_resolver, &subdomain).await {
                     Some(subdomain)
                 } else {
