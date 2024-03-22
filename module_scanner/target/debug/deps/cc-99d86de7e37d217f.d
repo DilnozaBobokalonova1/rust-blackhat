@@ -1,0 +1,10 @@
+/Users/dilnozabobokalonova/rust-blackhat/module_scanner/target/debug/deps/libcc-99d86de7e37d217f.rmeta: /Users/dilnozabobokalonova/.cargo/registry/src/index.crates.io-6f17d22bba15001f/cc-1.0.83/src/lib.rs /Users/dilnozabobokalonova/.cargo/registry/src/index.crates.io-6f17d22bba15001f/cc-1.0.83/src/os_pipe.rs /Users/dilnozabobokalonova/.cargo/registry/src/index.crates.io-6f17d22bba15001f/cc-1.0.83/src/os_pipe/unix.rs /Users/dilnozabobokalonova/.cargo/registry/src/index.crates.io-6f17d22bba15001f/cc-1.0.83/src/windows_registry.rs
+
+/Users/dilnozabobokalonova/rust-blackhat/module_scanner/target/debug/deps/libcc-99d86de7e37d217f.rlib: /Users/dilnozabobokalonova/.cargo/registry/src/index.crates.io-6f17d22bba15001f/cc-1.0.83/src/lib.rs /Users/dilnozabobokalonova/.cargo/registry/src/index.crates.io-6f17d22bba15001f/cc-1.0.83/src/os_pipe.rs /Users/dilnozabobokalonova/.cargo/registry/src/index.crates.io-6f17d22bba15001f/cc-1.0.83/src/os_pipe/unix.rs /Users/dilnozabobokalonova/.cargo/registry/src/index.crates.io-6f17d22bba15001f/cc-1.0.83/src/windows_registry.rs
+
+/Users/dilnozabobokalonova/rust-blackhat/module_scanner/target/debug/deps/cc-99d86de7e37d217f.d: /Users/dilnozabobokalonova/.cargo/registry/src/index.crates.io-6f17d22bba15001f/cc-1.0.83/src/lib.rs /Users/dilnozabobokalonova/.cargo/registry/src/index.crates.io-6f17d22bba15001f/cc-1.0.83/src/os_pipe.rs /Users/dilnozabobokalonova/.cargo/registry/src/index.crates.io-6f17d22bba15001f/cc-1.0.83/src/os_pipe/unix.rs /Users/dilnozabobokalonova/.cargo/registry/src/index.crates.io-6f17d22bba15001f/cc-1.0.83/src/windows_registry.rs
+
+/Users/dilnozabobokalonova/.cargo/registry/src/index.crates.io-6f17d22bba15001f/cc-1.0.83/src/lib.rs:
+/Users/dilnozabobokalonova/.cargo/registry/src/index.crates.io-6f17d22bba15001f/cc-1.0.83/src/os_pipe.rs:
+/Users/dilnozabobokalonova/.cargo/registry/src/index.crates.io-6f17d22bba15001f/cc-1.0.83/src/os_pipe/unix.rs:
+/Users/dilnozabobokalonova/.cargo/registry/src/index.crates.io-6f17d22bba15001f/cc-1.0.83/src/windows_registry.rs:

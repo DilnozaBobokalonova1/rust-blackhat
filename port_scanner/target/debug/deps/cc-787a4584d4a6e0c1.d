@@ -1,0 +1,10 @@
+/Users/dilnozabobokalonova/rust-blackhat/port_scanner/target/debug/deps/libcc-787a4584d4a6e0c1.rmeta: /Users/dilnozabobokalonova/.cargo/registry/src/index.crates.io-6f17d22bba15001f/cc-1.0.82/src/lib.rs /Users/dilnozabobokalonova/.cargo/registry/src/index.crates.io-6f17d22bba15001f/cc-1.0.82/src/os_pipe.rs /Users/dilnozabobokalonova/.cargo/registry/src/index.crates.io-6f17d22bba15001f/cc-1.0.82/src/os_pipe/unix.rs /Users/dilnozabobokalonova/.cargo/registry/src/index.crates.io-6f17d22bba15001f/cc-1.0.82/src/windows_registry.rs
+
+/Users/dilnozabobokalonova/rust-blackhat/port_scanner/target/debug/deps/libcc-787a4584d4a6e0c1.rlib: /Users/dilnozabobokalonova/.cargo/registry/src/index.crates.io-6f17d22bba15001f/cc-1.0.82/src/lib.rs /Users/dilnozabobokalonova/.cargo/registry/src/index.crates.io-6f17d22bba15001f/cc-1.0.82/src/os_pipe.rs /Users/dilnozabobokalonova/.cargo/registry/src/index.crates.io-6f17d22bba15001f/cc-1.0.82/src/os_pipe/unix.rs /Users/dilnozabobokalonova/.cargo/registry/src/index.crates.io-6f17d22bba15001f/cc-1.0.82/src/windows_registry.rs
+
+/Users/dilnozabobokalonova/rust-blackhat/port_scanner/target/debug/deps/cc-787a4584d4a6e0c1.d: /Users/dilnozabobokalonova/.cargo/registry/src/index.crates.io-6f17d22bba15001f/cc-1.0.82/src/lib.rs /Users/dilnozabobokalonova/.cargo/registry/src/index.crates.io-6f17d22bba15001f/cc-1.0.82/src/os_pipe.rs /Users/dilnozabobokalonova/.cargo/registry/src/index.crates.io-6f17d22bba15001f/cc-1.0.82/src/os_pipe/unix.rs /Users/dilnozabobokalonova/.cargo/registry/src/index.crates.io-6f17d22bba15001f/cc-1.0.82/src/windows_registry.rs
+
+/Users/dilnozabobokalonova/.cargo/registry/src/index.crates.io-6f17d22bba15001f/cc-1.0.82/src/lib.rs:
+/Users/dilnozabobokalonova/.cargo/registry/src/index.crates.io-6f17d22bba15001f/cc-1.0.82/src/os_pipe.rs:
+/Users/dilnozabobokalonova/.cargo/registry/src/index.crates.io-6f17d22bba15001f/cc-1.0.82/src/os_pipe/unix.rs:
+/Users/dilnozabobokalonova/.cargo/registry/src/index.crates.io-6f17d22bba15001f/cc-1.0.82/src/windows_registry.rs:

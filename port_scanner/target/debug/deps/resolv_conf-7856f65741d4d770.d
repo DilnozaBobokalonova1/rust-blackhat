@@ -1,0 +1,10 @@
+/Users/dilnozabobokalonova/rust-blackhat/port_scanner/target/debug/deps/libresolv_conf-7856f65741d4d770.rmeta: /Users/dilnozabobokalonova/.cargo/registry/src/index.crates.io-6f17d22bba15001f/resolv-conf-0.7.0/src/lib.rs /Users/dilnozabobokalonova/.cargo/registry/src/index.crates.io-6f17d22bba15001f/resolv-conf-0.7.0/src/grammar.rs /Users/dilnozabobokalonova/.cargo/registry/src/index.crates.io-6f17d22bba15001f/resolv-conf-0.7.0/src/ip.rs /Users/dilnozabobokalonova/.cargo/registry/src/index.crates.io-6f17d22bba15001f/resolv-conf-0.7.0/src/config.rs
+
+/Users/dilnozabobokalonova/rust-blackhat/port_scanner/target/debug/deps/libresolv_conf-7856f65741d4d770.rlib: /Users/dilnozabobokalonova/.cargo/registry/src/index.crates.io-6f17d22bba15001f/resolv-conf-0.7.0/src/lib.rs /Users/dilnozabobokalonova/.cargo/registry/src/index.crates.io-6f17d22bba15001f/resolv-conf-0.7.0/src/grammar.rs /Users/dilnozabobokalonova/.cargo/registry/src/index.crates.io-6f17d22bba15001f/resolv-conf-0.7.0/src/ip.rs /Users/dilnozabobokalonova/.cargo/registry/src/index.crates.io-6f17d22bba15001f/resolv-conf-0.7.0/src/config.rs
+
+/Users/dilnozabobokalonova/rust-blackhat/port_scanner/target/debug/deps/resolv_conf-7856f65741d4d770.d: /Users/dilnozabobokalonova/.cargo/registry/src/index.crates.io-6f17d22bba15001f/resolv-conf-0.7.0/src/lib.rs /Users/dilnozabobokalonova/.cargo/registry/src/index.crates.io-6f17d22bba15001f/resolv-conf-0.7.0/src/grammar.rs /Users/dilnozabobokalonova/.cargo/registry/src/index.crates.io-6f17d22bba15001f/resolv-conf-0.7.0/src/ip.rs /Users/dilnozabobokalonova/.cargo/registry/src/index.crates.io-6f17d22bba15001f/resolv-conf-0.7.0/src/config.rs
+
+/Users/dilnozabobokalonova/.cargo/registry/src/index.crates.io-6f17d22bba15001f/resolv-conf-0.7.0/src/lib.rs:
+/Users/dilnozabobokalonova/.cargo/registry/src/index.crates.io-6f17d22bba15001f/resolv-conf-0.7.0/src/grammar.rs:
+/Users/dilnozabobokalonova/.cargo/registry/src/index.crates.io-6f17d22bba15001f/resolv-conf-0.7.0/src/ip.rs:
+/Users/dilnozabobokalonova/.cargo/registry/src/index.crates.io-6f17d22bba15001f/resolv-conf-0.7.0/src/config.rs:

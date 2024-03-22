@@ -1,0 +1,133 @@
+cargo:rerun-if-env-changed=CUSTOM_LIBFUZZER_PATH
+cargo:rerun-if-changed=libfuzzer/FuzzerLoop.cpp
+cargo:rerun-if-changed=libfuzzer/FuzzerIOPosix.cpp
+cargo:rerun-if-changed=libfuzzer/FuzzerUtil.cpp
+cargo:rerun-if-changed=libfuzzer/FuzzerFork.cpp
+cargo:rerun-if-changed=libfuzzer/FuzzerMutate.cpp
+cargo:rerun-if-changed=libfuzzer/FuzzerDataFlowTrace.cpp
+cargo:rerun-if-changed=libfuzzer/FuzzerExtraCountersDarwin.cpp
+cargo:rerun-if-changed=libfuzzer/FuzzerExtFunctionsDlsym.cpp
+cargo:rerun-if-changed=libfuzzer/FuzzerUtilLinux.cpp
+cargo:rerun-if-changed=libfuzzer/FuzzerExtFunctionsWeak.cpp
+cargo:rerun-if-changed=libfuzzer/FuzzerIOWindows.cpp
+cargo:rerun-if-changed=libfuzzer/FuzzerSHA1.cpp
+cargo:rerun-if-changed=libfuzzer/FuzzerExtraCountersWindows.cpp
+cargo:rerun-if-changed=libfuzzer/FuzzerUtilWindows.cpp
+cargo:rerun-if-changed=libfuzzer/FuzzerDriver.cpp
+cargo:rerun-if-changed=libfuzzer/FuzzerExtFunctionsWindows.cpp
+cargo:rerun-if-changed=libfuzzer/FuzzerUtilPosix.cpp
+cargo:rerun-if-changed=libfuzzer/FuzzerMerge.cpp
+cargo:rerun-if-changed=libfuzzer/FuzzerCrossOver.cpp
+cargo:rerun-if-changed=libfuzzer/FuzzerUtilFuchsia.cpp
+cargo:rerun-if-changed=libfuzzer/FuzzerExtraCounters.cpp
+cargo:rerun-if-changed=libfuzzer/FuzzerInterceptors.cpp
+cargo:rerun-if-changed=libfuzzer/FuzzerUtilDarwin.cpp
+cargo:rerun-if-changed=libfuzzer/FuzzerMain.cpp
+cargo:rerun-if-changed=libfuzzer/FuzzerIO.cpp
+cargo:rerun-if-changed=libfuzzer/FuzzerTracePC.cpp
+TARGET = Some("aarch64-apple-darwin")
+OPT_LEVEL = Some("0")
+HOST = Some("aarch64-apple-darwin")
+cargo:rerun-if-env-changed=CXX_aarch64-apple-darwin
+CXX_aarch64-apple-darwin = None
+cargo:rerun-if-env-changed=CXX_aarch64_apple_darwin
+CXX_aarch64_apple_darwin = None
+cargo:rerun-if-env-changed=HOST_CXX
+HOST_CXX = None
+cargo:rerun-if-env-changed=CXX
+CXX = None
+cargo:rerun-if-env-changed=CRATE_CC_NO_DEFAULTS
+CRATE_CC_NO_DEFAULTS = None
+DEBUG = Some("true")
+CARGO_CFG_TARGET_FEATURE = Some("aes,crc,dit,dotprod,dpb,dpb2,fcma,fhm,flagm,fp16,frintts,jsconv,lor,lse,neon,paca,pacg,pan,pmuv3,ras,rcpc,rcpc2,rdm,sb,sha2,sha3,ssbs,vh")
+cargo:rerun-if-env-changed=CXXFLAGS_aarch64-apple-darwin
+CXXFLAGS_aarch64-apple-darwin = None
+cargo:rerun-if-env-changed=CXXFLAGS_aarch64_apple_darwin
+CXXFLAGS_aarch64_apple_darwin = None
+cargo:rerun-if-env-changed=HOST_CXXFLAGS
+HOST_CXXFLAGS = None
+cargo:rerun-if-env-changed=CXXFLAGS
+CXXFLAGS = None
+running: "c++" "-O0" "-ffunction-sections" "-fdata-sections" "-fPIC" "-gdwarf-2" "-fno-omit-frame-pointer" "-arch" "arm64" "-Wall" "-Wextra" "-std=c++17" "-fno-omit-frame-pointer" "-w" "-o" "/Users/dilnozabobokalonova/rust-blackhat/fuzzing/target/debug/build/libfuzzer-sys-38f696a552426db3/out/libfuzzer/FuzzerLoop.o" "-c" "libfuzzer/FuzzerLoop.cpp"
+running: "c++" "-O0" "-ffunction-sections" "-fdata-sections" "-fPIC" "-gdwarf-2" "-fno-omit-frame-pointer" "-arch" "arm64" "-Wall" "-Wextra" "-std=c++17" "-fno-omit-frame-pointer" "-w" "-o" "/Users/dilnozabobokalonova/rust-blackhat/fuzzing/target/debug/build/libfuzzer-sys-38f696a552426db3/out/libfuzzer/FuzzerIOPosix.o" "-c" "libfuzzer/FuzzerIOPosix.cpp"
+running: "c++" "-O0" "-ffunction-sections" "-fdata-sections" "-fPIC" "-gdwarf-2" "-fno-omit-frame-pointer" "-arch" "arm64" "-Wall" "-Wextra" "-std=c++17" "-fno-omit-frame-pointer" "-w" "-o" "/Users/dilnozabobokalonova/rust-blackhat/fuzzing/target/debug/build/libfuzzer-sys-38f696a552426db3/out/libfuzzer/FuzzerUtil.o" "-c" "libfuzzer/FuzzerUtil.cpp"
+running: "c++" "-O0" "-ffunction-sections" "-fdata-sections" "-fPIC" "-gdwarf-2" "-fno-omit-frame-pointer" "-arch" "arm64" "-Wall" "-Wextra" "-std=c++17" "-fno-omit-frame-pointer" "-w" "-o" "/Users/dilnozabobokalonova/rust-blackhat/fuzzing/target/debug/build/libfuzzer-sys-38f696a552426db3/out/libfuzzer/FuzzerFork.o" "-c" "libfuzzer/FuzzerFork.cpp"
+running: "c++" "-O0" "-ffunction-sections" "-fdata-sections" "-fPIC" "-gdwarf-2" "-fno-omit-frame-pointer" "-arch" "arm64" "-Wall" "-Wextra" "-std=c++17" "-fno-omit-frame-pointer" "-w" "-o" "/Users/dilnozabobokalonova/rust-blackhat/fuzzing/target/debug/build/libfuzzer-sys-38f696a552426db3/out/libfuzzer/FuzzerMutate.o" "-c" "libfuzzer/FuzzerMutate.cpp"
+running: "c++" "-O0" "-ffunction-sections" "-fdata-sections" "-fPIC" "-gdwarf-2" "-fno-omit-frame-pointer" "-arch" "arm64" "-Wall" "-Wextra" "-std=c++17" "-fno-omit-frame-pointer" "-w" "-o" "/Users/dilnozabobokalonova/rust-blackhat/fuzzing/target/debug/build/libfuzzer-sys-38f696a552426db3/out/libfuzzer/FuzzerDataFlowTrace.o" "-c" "libfuzzer/FuzzerDataFlowTrace.cpp"
+running: "c++" "-O0" "-ffunction-sections" "-fdata-sections" "-fPIC" "-gdwarf-2" "-fno-omit-frame-pointer" "-arch" "arm64" "-Wall" "-Wextra" "-std=c++17" "-fno-omit-frame-pointer" "-w" "-o" "/Users/dilnozabobokalonova/rust-blackhat/fuzzing/target/debug/build/libfuzzer-sys-38f696a552426db3/out/libfuzzer/FuzzerExtraCountersDarwin.o" "-c" "libfuzzer/FuzzerExtraCountersDarwin.cpp"
+running: "c++" "-O0" "-ffunction-sections" "-fdata-sections" "-fPIC" "-gdwarf-2" "-fno-omit-frame-pointer" "-arch" "arm64" "-Wall" "-Wextra" "-std=c++17" "-fno-omit-frame-pointer" "-w" "-o" "/Users/dilnozabobokalonova/rust-blackhat/fuzzing/target/debug/build/libfuzzer-sys-38f696a552426db3/out/libfuzzer/FuzzerExtFunctionsDlsym.o" "-c" "libfuzzer/FuzzerExtFunctionsDlsym.cpp"
+running: "c++" "-O0" "-ffunction-sections" "-fdata-sections" "-fPIC" "-gdwarf-2" "-fno-omit-frame-pointer" "-arch" "arm64" "-Wall" "-Wextra" "-std=c++17" "-fno-omit-frame-pointer" "-w" "-o" "/Users/dilnozabobokalonova/rust-blackhat/fuzzing/target/debug/build/libfuzzer-sys-38f696a552426db3/out/libfuzzer/FuzzerUtilLinux.o" "-c" "libfuzzer/FuzzerUtilLinux.cpp"
+running: "c++" "-O0" "-ffunction-sections" "-fdata-sections" "-fPIC" "-gdwarf-2" "-fno-omit-frame-pointer" "-arch" "arm64" "-Wall" "-Wextra" "-std=c++17" "-fno-omit-frame-pointer" "-w" "-o" "/Users/dilnozabobokalonova/rust-blackhat/fuzzing/target/debug/build/libfuzzer-sys-38f696a552426db3/out/libfuzzer/FuzzerExtFunctionsWeak.o" "-c" "libfuzzer/FuzzerExtFunctionsWeak.cpp"
+running: "c++" "-O0" "-ffunction-sections" "-fdata-sections" "-fPIC" "-gdwarf-2" "-fno-omit-frame-pointer" "-arch" "arm64" "-Wall" "-Wextra" "-std=c++17" "-fno-omit-frame-pointer" "-w" "-o" "/Users/dilnozabobokalonova/rust-blackhat/fuzzing/target/debug/build/libfuzzer-sys-38f696a552426db3/out/libfuzzer/FuzzerIOWindows.o" "-c" "libfuzzer/FuzzerIOWindows.cpp"
+running: "c++" "-O0" "-ffunction-sections" "-fdata-sections" "-fPIC" "-gdwarf-2" "-fno-omit-frame-pointer" "-arch" "arm64" "-Wall" "-Wextra" "-std=c++17" "-fno-omit-frame-pointer" "-w" "-o" "/Users/dilnozabobokalonova/rust-blackhat/fuzzing/target/debug/build/libfuzzer-sys-38f696a552426db3/out/libfuzzer/FuzzerSHA1.o" "-c" "libfuzzer/FuzzerSHA1.cpp"
+running: "c++" "-O0" "-ffunction-sections" "-fdata-sections" "-fPIC" "-gdwarf-2" "-fno-omit-frame-pointer" "-arch" "arm64" "-Wall" "-Wextra" "-std=c++17" "-fno-omit-frame-pointer" "-w" "-o" "/Users/dilnozabobokalonova/rust-blackhat/fuzzing/target/debug/build/libfuzzer-sys-38f696a552426db3/out/libfuzzer/FuzzerExtraCountersWindows.o" "-c" "libfuzzer/FuzzerExtraCountersWindows.cpp"
+running: "c++" "-O0" "-ffunction-sections" "-fdata-sections" "-fPIC" "-gdwarf-2" "-fno-omit-frame-pointer" "-arch" "arm64" "-Wall" "-Wextra" "-std=c++17" "-fno-omit-frame-pointer" "-w" "-o" "/Users/dilnozabobokalonova/rust-blackhat/fuzzing/target/debug/build/libfuzzer-sys-38f696a552426db3/out/libfuzzer/FuzzerUtilWindows.o" "-c" "libfuzzer/FuzzerUtilWindows.cpp"
+running: "c++" "-O0" "-ffunction-sections" "-fdata-sections" "-fPIC" "-gdwarf-2" "-fno-omit-frame-pointer" "-arch" "arm64" "-Wall" "-Wextra" "-std=c++17" "-fno-omit-frame-pointer" "-w" "-o" "/Users/dilnozabobokalonova/rust-blackhat/fuzzing/target/debug/build/libfuzzer-sys-38f696a552426db3/out/libfuzzer/FuzzerDriver.o" "-c" "libfuzzer/FuzzerDriver.cpp"
+running: "c++" "-O0" "-ffunction-sections" "-fdata-sections" "-fPIC" "-gdwarf-2" "-fno-omit-frame-pointer" "-arch" "arm64" "-Wall" "-Wextra" "-std=c++17" "-fno-omit-frame-pointer" "-w" "-o" "/Users/dilnozabobokalonova/rust-blackhat/fuzzing/target/debug/build/libfuzzer-sys-38f696a552426db3/out/libfuzzer/FuzzerExtFunctionsWindows.o" "-c" "libfuzzer/FuzzerExtFunctionsWindows.cpp"
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+running: "c++" "-O0" "-ffunction-sections" "-fdata-sections" "-fPIC" "-gdwarf-2" "-fno-omit-frame-pointer" "-arch" "arm64" "-Wall" "-Wextra" "-std=c++17" "-fno-omit-frame-pointer" "-w" "-o" "/Users/dilnozabobokalonova/rust-blackhat/fuzzing/target/debug/build/libfuzzer-sys-38f696a552426db3/out/libfuzzer/FuzzerUtilPosix.o" "-c" "libfuzzer/FuzzerUtilPosix.cpp"
+running: "c++" "-O0" "-ffunction-sections" "-fdata-sections" "-fPIC" "-gdwarf-2" "-fno-omit-frame-pointer" "-arch" "arm64" "-Wall" "-Wextra" "-std=c++17" "-fno-omit-frame-pointer" "-w" "-o" "/Users/dilnozabobokalonova/rust-blackhat/fuzzing/target/debug/build/libfuzzer-sys-38f696a552426db3/out/libfuzzer/FuzzerMerge.o" "-c" "libfuzzer/FuzzerMerge.cpp"
+running: "c++" "-O0" "-ffunction-sections" "-fdata-sections" "-fPIC" "-gdwarf-2" "-fno-omit-frame-pointer" "-arch" "arm64" "-Wall" "-Wextra" "-std=c++17" "-fno-omit-frame-pointer" "-w" "-o" "/Users/dilnozabobokalonova/rust-blackhat/fuzzing/target/debug/build/libfuzzer-sys-38f696a552426db3/out/libfuzzer/FuzzerCrossOver.o" "-c" "libfuzzer/FuzzerCrossOver.cpp"
+running: "c++" "-O0" "-ffunction-sections" "-fdata-sections" "-fPIC" "-gdwarf-2" "-fno-omit-frame-pointer" "-arch" "arm64" "-Wall" "-Wextra" "-std=c++17" "-fno-omit-frame-pointer" "-w" "-o" "/Users/dilnozabobokalonova/rust-blackhat/fuzzing/target/debug/build/libfuzzer-sys-38f696a552426db3/out/libfuzzer/FuzzerUtilFuchsia.o" "-c" "libfuzzer/FuzzerUtilFuchsia.cpp"
+running: "c++" "-O0" "-ffunction-sections" "-fdata-sections" "-fPIC" "-gdwarf-2" "-fno-omit-frame-pointer" "-arch" "arm64" "-Wall" "-Wextra" "-std=c++17" "-fno-omit-frame-pointer" "-w" "-o" "/Users/dilnozabobokalonova/rust-blackhat/fuzzing/target/debug/build/libfuzzer-sys-38f696a552426db3/out/libfuzzer/FuzzerExtraCounters.o" "-c" "libfuzzer/FuzzerExtraCounters.cpp"
+running: "c++" "-O0" "-ffunction-sections" "-fdata-sections" "-fPIC" "-gdwarf-2" "-fno-omit-frame-pointer" "-arch" "arm64" "-Wall" "-Wextra" "-std=c++17" "-fno-omit-frame-pointer" "-w" "-o" "/Users/dilnozabobokalonova/rust-blackhat/fuzzing/target/debug/build/libfuzzer-sys-38f696a552426db3/out/libfuzzer/FuzzerInterceptors.o" "-c" "libfuzzer/FuzzerInterceptors.cpp"
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+running: "c++" "-O0" "-ffunction-sections" "-fdata-sections" "-fPIC" "-gdwarf-2" "-fno-omit-frame-pointer" "-arch" "arm64" "-Wall" "-Wextra" "-std=c++17" "-fno-omit-frame-pointer" "-w" "-o" "/Users/dilnozabobokalonova/rust-blackhat/fuzzing/target/debug/build/libfuzzer-sys-38f696a552426db3/out/libfuzzer/FuzzerUtilDarwin.o" "-c" "libfuzzer/FuzzerUtilDarwin.cpp"
+running: "c++" "-O0" "-ffunction-sections" "-fdata-sections" "-fPIC" "-gdwarf-2" "-fno-omit-frame-pointer" "-arch" "arm64" "-Wall" "-Wextra" "-std=c++17" "-fno-omit-frame-pointer" "-w" "-o" "/Users/dilnozabobokalonova/rust-blackhat/fuzzing/target/debug/build/libfuzzer-sys-38f696a552426db3/out/libfuzzer/FuzzerMain.o" "-c" "libfuzzer/FuzzerMain.cpp"
+running: "c++" "-O0" "-ffunction-sections" "-fdata-sections" "-fPIC" "-gdwarf-2" "-fno-omit-frame-pointer" "-arch" "arm64" "-Wall" "-Wextra" "-std=c++17" "-fno-omit-frame-pointer" "-w" "-o" "/Users/dilnozabobokalonova/rust-blackhat/fuzzing/target/debug/build/libfuzzer-sys-38f696a552426db3/out/libfuzzer/FuzzerIO.o" "-c" "libfuzzer/FuzzerIO.cpp"
+running: "c++" "-O0" "-ffunction-sections" "-fdata-sections" "-fPIC" "-gdwarf-2" "-fno-omit-frame-pointer" "-arch" "arm64" "-Wall" "-Wextra" "-std=c++17" "-fno-omit-frame-pointer" "-w" "-o" "/Users/dilnozabobokalonova/rust-blackhat/fuzzing/target/debug/build/libfuzzer-sys-38f696a552426db3/out/libfuzzer/FuzzerTracePC.o" "-c" "libfuzzer/FuzzerTracePC.cpp"
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+cargo:rerun-if-env-changed=AR_aarch64-apple-darwin
+AR_aarch64-apple-darwin = None
+cargo:rerun-if-env-changed=AR_aarch64_apple_darwin
+AR_aarch64_apple_darwin = None
+cargo:rerun-if-env-changed=HOST_AR
+HOST_AR = None
+cargo:rerun-if-env-changed=AR
+AR = None
+cargo:rerun-if-env-changed=ARFLAGS_aarch64-apple-darwin
+ARFLAGS_aarch64-apple-darwin = None
+cargo:rerun-if-env-changed=ARFLAGS_aarch64_apple_darwin
+ARFLAGS_aarch64_apple_darwin = None
+cargo:rerun-if-env-changed=HOST_ARFLAGS
+HOST_ARFLAGS = None
+cargo:rerun-if-env-changed=ARFLAGS
+ARFLAGS = None
+running: ZERO_AR_DATE="1" "ar" "cq" "/Users/dilnozabobokalonova/rust-blackhat/fuzzing/target/debug/build/libfuzzer-sys-38f696a552426db3/out/libfuzzer.a" "/Users/dilnozabobokalonova/rust-blackhat/fuzzing/target/debug/build/libfuzzer-sys-38f696a552426db3/out/libfuzzer/FuzzerLoop.o" "/Users/dilnozabobokalonova/rust-blackhat/fuzzing/target/debug/build/libfuzzer-sys-38f696a552426db3/out/libfuzzer/FuzzerIOPosix.o" "/Users/dilnozabobokalonova/rust-blackhat/fuzzing/target/debug/build/libfuzzer-sys-38f696a552426db3/out/libfuzzer/FuzzerUtil.o" "/Users/dilnozabobokalonova/rust-blackhat/fuzzing/target/debug/build/libfuzzer-sys-38f696a552426db3/out/libfuzzer/FuzzerFork.o" "/Users/dilnozabobokalonova/rust-blackhat/fuzzing/target/debug/build/libfuzzer-sys-38f696a552426db3/out/libfuzzer/FuzzerMutate.o" "/Users/dilnozabobokalonova/rust-blackhat/fuzzing/target/debug/build/libfuzzer-sys-38f696a552426db3/out/libfuzzer/FuzzerDataFlowTrace.o" "/Users/dilnozabobokalonova/rust-blackhat/fuzzing/target/debug/build/libfuzzer-sys-38f696a552426db3/out/libfuzzer/FuzzerExtraCountersDarwin.o" "/Users/dilnozabobokalonova/rust-blackhat/fuzzing/target/debug/build/libfuzzer-sys-38f696a552426db3/out/libfuzzer/FuzzerExtFunctionsDlsym.o" "/Users/dilnozabobokalonova/rust-blackhat/fuzzing/target/debug/build/libfuzzer-sys-38f696a552426db3/out/libfuzzer/FuzzerUtilLinux.o" "/Users/dilnozabobokalonova/rust-blackhat/fuzzing/target/debug/build/libfuzzer-sys-38f696a552426db3/out/libfuzzer/FuzzerExtFunctionsWeak.o" "/Users/dilnozabobokalonova/rust-blackhat/fuzzing/target/debug/build/libfuzzer-sys-38f696a552426db3/out/libfuzzer/FuzzerIOWindows.o" "/Users/dilnozabobokalonova/rust-blackhat/fuzzing/target/debug/build/libfuzzer-sys-38f696a552426db3/out/libfuzzer/FuzzerSHA1.o" "/Users/dilnozabobokalonova/rust-blackhat/fuzzing/target/debug/build/libfuzzer-sys-38f696a552426db3/out/libfuzzer/FuzzerExtraCountersWindows.o" "/Users/dilnozabobokalonova/rust-blackhat/fuzzing/target/debug/build/libfuzzer-sys-38f696a552426db3/out/libfuzzer/FuzzerUtilWindows.o" "/Users/dilnozabobokalonova/rust-blackhat/fuzzing/target/debug/build/libfuzzer-sys-38f696a552426db3/out/libfuzzer/FuzzerDriver.o" "/Users/dilnozabobokalonova/rust-blackhat/fuzzing/target/debug/build/libfuzzer-sys-38f696a552426db3/out/libfuzzer/FuzzerExtFunctionsWindows.o" "/Users/dilnozabobokalonova/rust-blackhat/fuzzing/target/debug/build/libfuzzer-sys-38f696a552426db3/out/libfuzzer/FuzzerUtilPosix.o" "/Users/dilnozabobokalonova/rust-blackhat/fuzzing/target/debug/build/libfuzzer-sys-38f696a552426db3/out/libfuzzer/FuzzerMerge.o" "/Users/dilnozabobokalonova/rust-blackhat/fuzzing/target/debug/build/libfuzzer-sys-38f696a552426db3/out/libfuzzer/FuzzerCrossOver.o" "/Users/dilnozabobokalonova/rust-blackhat/fuzzing/target/debug/build/libfuzzer-sys-38f696a552426db3/out/libfuzzer/FuzzerUtilFuchsia.o" "/Users/dilnozabobokalonova/rust-blackhat/fuzzing/target/debug/build/libfuzzer-sys-38f696a552426db3/out/libfuzzer/FuzzerExtraCounters.o" "/Users/dilnozabobokalonova/rust-blackhat/fuzzing/target/debug/build/libfuzzer-sys-38f696a552426db3/out/libfuzzer/FuzzerInterceptors.o" "/Users/dilnozabobokalonova/rust-blackhat/fuzzing/target/debug/build/libfuzzer-sys-38f696a552426db3/out/libfuzzer/FuzzerUtilDarwin.o" "/Users/dilnozabobokalonova/rust-blackhat/fuzzing/target/debug/build/libfuzzer-sys-38f696a552426db3/out/libfuzzer/FuzzerMain.o" "/Users/dilnozabobokalonova/rust-blackhat/fuzzing/target/debug/build/libfuzzer-sys-38f696a552426db3/out/libfuzzer/FuzzerIO.o" "/Users/dilnozabobokalonova/rust-blackhat/fuzzing/target/debug/build/libfuzzer-sys-38f696a552426db3/out/libfuzzer/FuzzerTracePC.o"
+exit status: 0
+running: "ar" "s" "/Users/dilnozabobokalonova/rust-blackhat/fuzzing/target/debug/build/libfuzzer-sys-38f696a552426db3/out/libfuzzer.a"
+exit status: 0
+cargo:rustc-link-lib=static=fuzzer
+cargo:rustc-link-search=native=/Users/dilnozabobokalonova/rust-blackhat/fuzzing/target/debug/build/libfuzzer-sys-38f696a552426db3/out
+cargo:rerun-if-env-changed=CXXSTDLIB_aarch64-apple-darwin
+CXXSTDLIB_aarch64-apple-darwin = None
+cargo:rerun-if-env-changed=CXXSTDLIB_aarch64_apple_darwin
+CXXSTDLIB_aarch64_apple_darwin = None
+cargo:rerun-if-env-changed=HOST_CXXSTDLIB
+HOST_CXXSTDLIB = None
+cargo:rerun-if-env-changed=CXXSTDLIB
+CXXSTDLIB = None
+cargo:rustc-link-lib=c++
