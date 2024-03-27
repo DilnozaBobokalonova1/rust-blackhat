@@ -1,0 +1,18 @@
+[workspace]
+
+members = [
+    "rat-agent",
+    "rat-client",
+    "common",
+    "rat-server", "common",
+]
+
+[profile.release]
+#done for optimization purposes
+lto = true
+codegen-units = 1
+
+[profile.release.package.agent]
+opt-level = 'z'
+debug = false
+debug-assertions = false
