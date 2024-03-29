@@ -1,14 +1,12 @@
-use log::error;
-use sqlx::{Pool, Postgres};
-use uuid::Uuid;
 use super::Repository;
 use crate::entities::Agent;
 use crate::Error;
+use log::error;
+use sqlx::{Pool, Postgres};
+use uuid::Uuid;
 
 impl Repository {
-
     pub async fn create_agent(&self, db: &Pool<Postgres>, agent: &Agent) -> Result<(), Error> {
-
         const QUERY: &str = "INSERT INTO agents
             (id, created_at, last_seen_at)
             VALUES ($1, $2, $3)";
@@ -18,13 +16,14 @@ impl Repository {
             .bind(agent.created_at)
             .bind(agent.last_seen_at)
             .execute(db)
-            .await {
-                Ok(_) => Ok(()),
-                Err(err) => {
-                    error!("create_agent: Inserting agent: {}", &err);
-                    Err(err.into())
-                }
+            .await
+        {
+            Ok(_) => Ok(()),
+            Err(err) => {
+                error!("create_agent: Inserting agent: {}", &err);
+                Err(err.into())
             }
+        }
     }
 
     pub async fn update_agent(&self, db: &Pool<Postgres>, agent: &Agent) -> Result<(), Error> {
@@ -36,13 +35,14 @@ impl Repository {
             .bind(agent.last_seen_at)
             .bind(agent.id)
             .execute(db)
-            .await {
-                Ok(_) => Ok(()),
-                Err(err) => {
-                    error!("update_agent: updating agent: {}", &err);
-                    Err(err.into())
-                }
+            .await
+        {
+            Ok(_) => Ok(()),
+            Err(err) => {
+                error!("update_agent: updating agent: {}", &err);
+                Err(err.into())
             }
+        }
     }
 
     pub async fn find_all_agents(&self, db: &Pool<Postgres>) -> Result<Vec<Agent>, Error> {
@@ -60,10 +60,15 @@ impl Repository {
     pub async fn find_agent_by_id(
         &self,
         db: &Pool<Postgres>,
-        agent_id: Uuid,) -> Result<Agent, Error> {
+        agent_id: Uuid,
+    ) -> Result<Agent, Error> {
         const QUERY: &str = "SELECT * FROM agents WHERE id = $1";
 
-        match sqlx::query_as::<_, Agent>(QUERY).bind(agent_id).fetch_optional(db).await {
+        match sqlx::query_as::<_, Agent>(QUERY)
+            .bind(agent_id)
+            .fetch_optional(db)
+            .await
+        {
             Ok(Some(res)) => Ok(res),
             Ok(None) => Err(Error::NotFound("Agent not found.".to_string())),
             Err(err) => {

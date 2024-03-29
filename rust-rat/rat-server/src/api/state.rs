@@ -9,10 +9,16 @@ pub struct AppState {
 
 impl AppState {
     pub fn new(service: Service) -> AppState {
-        AppState {service}
+        AppState { service }
     }
 }
 
+/**
+ * Using with_state in Warp to inject the shared state into our request handlers.
+ * Cloning the Arc ensures that each part of our application that needs to access
+ * the state can do so safely and independently, without directly sharing the
+ * mutable state or risking data races.
+ */
 pub fn with_state(
     state: Arc<AppState>,
 ) -> impl Filter<Extract = (Arc<AppState>,), Error = std::convert::Infallible> + Clone {

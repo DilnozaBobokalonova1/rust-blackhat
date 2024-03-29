@@ -1,17 +1,15 @@
-mod error;
+mod api;
 mod config;
 mod db;
-mod api;
-mod service;
 mod entities;
+mod error;
 mod repository;
+mod service;
 pub use service::Service;
 
-pub use error::Error;
 use config::Config;
-
+pub use error::Error;
 
 fn main() {
     println!("Hello, world!");
-
 }

@@ -16,7 +16,6 @@ pub struct Job {
 }
 
 impl Into<api::Job> for Job {
-
     fn into(self) -> api::Job {
         api::Job {
             id: self.id,

@@ -1,21 +1,18 @@
-use common::api::{UpdateJobResult, CreateJob};
+use common::api::{CreateJob, UpdateJobResult};
 use sqlx::types::Json;
 use uuid::Uuid;
 
+use super::Service;
 use crate::entities::Job;
 use crate::Error;
-use crate::repository::Repository;
-use super::Service;
 use chrono::Utc;
 
-
 impl Service {
-
-
     pub async fn create_job(&self, input: CreateJob) -> Result<Job, Error> {
         let command = input.command.trim();
 
-        let mut command_with_args: Vec<String> = command.split_ascii_whitespace()
+        let mut command_with_args: Vec<String> = command
+            .split_ascii_whitespace()
             .into_iter()
             //to_owned for to String conversion
             .map(|s| s.to_owned())
@@ -55,21 +52,19 @@ impl Service {
         match self.repo.find_job_for_agent(&self.db, agent_id).await {
             Ok(newJob) => Ok(Some(newJob)),
             Err(Error::NotFound(_)) => Ok(None),
-            Err(err) => Err(err.into())
+            Err(err) => Err(err.into()),
         }
     }
 
     pub async fn update_job_result(&self, input: UpdateJobResult) -> Result<(), Error> {
-
         let mut job = self.repo.find_job_by_id(&self.db, input.job_id).await?;
 
         job.executed_at = Some(Utc::now());
         job.output = Some(input.output);
-        self.repo.update_job(&self.db, &job).await 
-    }
-    
-    pub async fn list_jobs(&self,) -> Result<Vec<Job>, Error> {
-        self.repo.find_all_jobs(&self.db).await
+        self.repo.update_job(&self.db, &job).await
     }
 
+    pub async fn list_jobs(&self) -> Result<Vec<Job>, Error> {
+        self.repo.find_all_jobs(&self.db).await
+    }
 }

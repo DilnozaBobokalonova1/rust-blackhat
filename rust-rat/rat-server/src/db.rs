@@ -25,4 +25,3 @@ pub async fn migrate(db: &Pool<Postgres>) -> Result<(), crate::Error> {
 
     Ok(())
 }
-

@@ -11,7 +11,6 @@ const ENV_PORT: &str = "PORT";
 const DEFAULT_PORT: u16 = 8080;
 
 impl Config {
-
     pub fn load() -> Result<Config, Error> {
         dotenv::dotenv().ok();
 
@@ -22,7 +21,7 @@ impl Config {
 
         let database_url = std::env::var(ENV_DB_URL).map_err(|_| env_not_found(ENV_DB_URL))?;
 
-        Ok(Config {port, database_url})
+        Ok(Config { port, database_url })
     }
 }
 

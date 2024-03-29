@@ -1,9 +1,8 @@
 use crate::repository;
-use sqlx::{Pool, Postgres};
 use repository::Repository;
+use sqlx::{Pool, Postgres};
 mod agents;
 mod jobs;
-
 
 #[derive(Debug)]
 pub struct Service {
@@ -14,6 +13,6 @@ pub struct Service {
 impl Service {
     pub fn new(db: Pool<Postgres>) -> Service {
         let repo = Repository {};
-        Service { repo, db}
+        Service { repo, db }
     }
 }

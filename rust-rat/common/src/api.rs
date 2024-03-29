@@ -1,8 +1,7 @@
 use chrono::{DateTime, Utc};
 use serde::{Deserialize, Serialize};
-use std::{collections::HashMap, hash::Hash};
+use std::collections::HashMap;
 use uuid::Uuid;
-
 
 #[derive(Debug, Serialize, Deserialize)]
 pub struct Response<T: Serialize> {
@@ -11,15 +10,18 @@ pub struct Response<T: Serialize> {
     pub error: Option<Error>,
 }
 
-impl<T:Serialize> Response<T> {
+impl<T: Serialize> Response<T> {
     pub fn ok(data: T) -> Response<T> {
-        return Response { data: Some(data), error: None };
+        return Response {
+            data: Some(data),
+            error: None,
+        };
     }
 
     pub fn error(err: Error) -> Response<()> {
         return Response::<()> {
             data: None,
-            error: Some(err)
+            error: Some(err),
         };
     }
 }
@@ -28,7 +30,7 @@ impl<T:Serialize> Response<T> {
 pub struct Error {
     pub message: String,
     #[serde(skip_serializing_if = "Option::is_none")]
-    pub extensions: Option<HashMap<String, String>>
+    pub extensions: Option<HashMap<String, String>>,
 }
 
 #[derive(Debug, Clone, Deserialize, Serialize)]
@@ -59,7 +61,7 @@ pub struct AgentJob {
 pub struct Agent {
     pub id: Uuid,
     pub created_at: DateTime<Utc>,
-    pub last_seen_at: DateTime<Utc>
+    pub last_seen_at: DateTime<Utc>,
 }
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
