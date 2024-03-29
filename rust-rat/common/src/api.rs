@@ -62,6 +62,11 @@ pub struct Agent {
     pub last_seen_at: DateTime<Utc>
 }
 
+#[derive(Debug, Clone, Serialize, Deserialize)]
+pub struct AgentRegistered {
+    pub id: Uuid,
+}
+
 #[derive(Debug, Clone, Deserialize, Serialize)]
 pub struct AgentsList {
     pub agents: Vec<Agent>,

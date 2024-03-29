@@ -10,36 +10,7 @@ use chrono::Utc;
 
 
 impl Service {
-    pub async fn find_job(&self, job_id: Uuid) -> Result<Job, Error> {
-        self.repo.find_job_by_id(&self.db, job_id).await
-    }
-    
-    pub async fn list_jobs(&self,) -> Result<Vec<Job>, Error> {
-        self.repo.find_all_jobs(&self.db).await
-    }
 
-    pub async fn get_agent_job(self, agent_id: Uuid) -> Result<Option<Job>, Error> {
-        let mut agent = self.repo.find_agent_by_id(&self.db, agent_id).await?;
-
-        agent.last_seen_at = Utc::now();
-
-        let _ = self.repo.update_agent(&self.db, &agent).await;
-
-        match self.repo.find_job_for_agent(&self.db, agent_id).await {
-            Ok(newJob) => Ok(Some(newJob)),
-            Err(Error::NotFound(_)) => Ok(None),
-            Err(err) => Err(err.into())
-        }
-    }
-
-    pub async fn update_job_result(&self, input: UpdateJobResult) -> Result<(), Error> {
-
-        let mut job = self.repo.find_job_by_id(&self.db, input.job_id).await?;
-
-        job.executed_at = Some(Utc::now());
-        job.output = Some(input.output);
-        self.repo.update_job(&self.db, &job).await 
-    }
 
     pub async fn create_job(&self, input: CreateJob) -> Result<Job, Error> {
         let command = input.command.trim();
@@ -68,6 +39,37 @@ impl Service {
         self.repo.create_job(&self.db, &new_job).await?;
 
         Ok(new_job)
+    }
+
+    pub async fn find_job(&self, job_id: Uuid) -> Result<Job, Error> {
+        self.repo.find_job_by_id(&self.db, job_id).await
+    }
+
+    pub async fn get_agent_job(self, agent_id: Uuid) -> Result<Option<Job>, Error> {
+        let mut agent = self.repo.find_agent_by_id(&self.db, agent_id).await?;
+
+        agent.last_seen_at = Utc::now();
+
+        let _ = self.repo.update_agent(&self.db, &agent).await;
+
+        match self.repo.find_job_for_agent(&self.db, agent_id).await {
+            Ok(newJob) => Ok(Some(newJob)),
+            Err(Error::NotFound(_)) => Ok(None),
+            Err(err) => Err(err.into())
+        }
+    }
+
+    pub async fn update_job_result(&self, input: UpdateJobResult) -> Result<(), Error> {
+
+        let mut job = self.repo.find_job_by_id(&self.db, input.job_id).await?;
+
+        job.executed_at = Some(Utc::now());
+        job.output = Some(input.output);
+        self.repo.update_job(&self.db, &job).await 
+    }
+    
+    pub async fn list_jobs(&self,) -> Result<Vec<Job>, Error> {
+        self.repo.find_all_jobs(&self.db).await
     }
 
 }
