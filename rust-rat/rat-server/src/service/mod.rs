@@ -1,6 +1,6 @@
-use crate::Repository;
+use crate::repository;
 use sqlx::{Pool, Postgres};
-
+use repository::Repository;
 mod agents;
 mod jobs;
 

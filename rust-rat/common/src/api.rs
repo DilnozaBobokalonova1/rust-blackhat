@@ -71,3 +71,9 @@ pub struct AgentsList {
 pub struct JobsList {
     pub jobs: Vec<Job>,
 }
+
+#[derive(Debug, Clone, Serialize, Deserialize)]
+pub struct CreateJob {
+    pub agent_id: Uuid,
+    pub command: String,
+}
