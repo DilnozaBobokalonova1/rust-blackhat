@@ -2,6 +2,7 @@
 
 **Presentation Layer:**
 
+- Routing is done here to match an HTTP request to the correct function
 - Responsible for deserializing requests and serializing responses.
 - Owns models like HTML templates or structures for encoding in JSON/XML.
 - Encapsulates encoding details for server responses.
