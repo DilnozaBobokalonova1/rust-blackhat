@@ -15,6 +15,11 @@ pub struct Job {
     pub agent_id: Uuid,
 }
 
+
+/**
+ * Necessary conversion of entities::Job into api::Job for presentation (API) layer response 
+ * after fetching response from the services layer that uses entities.
+ */
 impl Into<api::Job> for Job {
     fn into(self) -> api::Job {
         api::Job {

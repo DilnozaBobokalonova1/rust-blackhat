@@ -42,7 +42,7 @@ impl Service {
         self.repo.find_job_by_id(&self.db, job_id).await
     }
 
-    pub async fn get_agent_job(self, agent_id: Uuid) -> Result<Option<Job>, Error> {
+    pub async fn get_agent_job(&self, agent_id: Uuid) -> Result<Option<Job>, Error> {
         let mut agent = self.repo.find_agent_by_id(&self.db, agent_id).await?;
 
         agent.last_seen_at = Utc::now();
