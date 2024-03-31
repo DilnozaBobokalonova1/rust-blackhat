@@ -3,7 +3,7 @@ use common::api;
 
 use std::{sync::Arc, time::Duration};
 use uuid::Uuid;
-use warp::{http::StatusCode, serve, Rejection};
+use warp::{http::StatusCode, Rejection};
 
 pub async fn create_job(
     state: Arc<AppState>,
