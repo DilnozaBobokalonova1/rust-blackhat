@@ -9,15 +9,30 @@ pub fn init(api_client: &ureq::Agent) -> Result<Uuid, Error> {
     let saved_agent_id = get_saved_agent_id()?;
 
 
+    let agent_id = match saved_agent_id {
+        Some(agent_id) => agent_id,
+        None => {
+            let agent_id = register(api_client)?;
+            save_agent_id(agent_id)?;
+            agent_id
+        }
+    };
 
+    Ok(agent_id)
 }
 
 pub fn register(api_client: &ureq::Agent) -> Result<Uuid, Error> {
 
-
     //replace with actual code
     let agent_id: Uuid = Uuid::new_v4();
     Ok(agent_id)
+}
+
+pub fn save_agent_id(agent_id: Uuid) -> Result<(), Error> {
+    let agent_id_file = get_agent_id_file_path()?;
+    fs::write(agent_id_file, agent_id.as_bytes())?;
+
+    Ok(())
 }
 
 pub fn get_saved_agent_id() -> Result<Option<Uuid>, Error> {
@@ -40,11 +55,4 @@ pub fn get_agent_id_file_path() -> Result<PathBuf, Error> {
     home_dir.push(consts::AGENT_ID_FILE);
 
     Ok(home_dir)
-}
-
-pub fn save_agent_id(agent_id: Uuid) -> Result<(), Error> {
-    let agent_id_file = get_agent_id_file_path()?;
-    fs::write(agent_id_file, agent_id.as_bytes())?;
-
-    Ok(())
 }
