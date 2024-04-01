@@ -28,6 +28,20 @@ async fn main() -> Result<(), anyhow::Error> {
 
     let routes = api::routes::routes(app_state);
 
+    log::info!("starting server on: 0.0.0.0:{}", config.port);
+
+    let (_addr, server) = 
+        warp::serve(routes).bind_with_graceful_shutdown(
+            //server will only accept requests sent from the same machine on config.port
+            (([127, 0, 0, 1]), config.port), 
+            async {
+                tokio::signal::ctrl_c()
+                    .await
+                    .expect("Failed to listen for CTRL+c");
+                log::info!("Shutting down server!")
+            });
+
+    server.await;
     Ok(())
 
 }
