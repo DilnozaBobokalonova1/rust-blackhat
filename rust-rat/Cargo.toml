@@ -1,10 +1,9 @@
 [workspace]
-
 members = [
     "rat-agent",
     "rat-client",
     "common",
-    "rat-server", "common",
+    "rat-server",
 ]
 
 [profile.release]
