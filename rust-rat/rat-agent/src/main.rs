@@ -6,6 +6,14 @@ mod run;
 use std::time::Duration;
 
 pub use error::Error;
-fn main() {
-    println!("Hello, world!");
+
+// note that in the result, the type of error is dynamic hence use `dyn`
+fn main() -> Result<(), Box<dyn std::error::Error>> {
+    let api_client = ureq::AgentBuilder::new()
+        .timeout(Duration::from_secs(10))
+        .user_agent("ch_10_agent/0.1")
+        .build();
+
+    let agent_id = init::init(&api_client)?;
+    run::run(&api_client, agent_id);
 }

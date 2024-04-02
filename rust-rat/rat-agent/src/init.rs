@@ -8,7 +8,6 @@ pub fn init(api_client: &ureq::Agent) -> Result<Uuid, Error> {
 
     let saved_agent_id = get_saved_agent_id()?;
 
-
     let agent_id = match saved_agent_id {
         Some(agent_id) => agent_id,
         None => {
@@ -23,8 +22,21 @@ pub fn init(api_client: &ureq::Agent) -> Result<Uuid, Error> {
 
 pub fn register(api_client: &ureq::Agent) -> Result<Uuid, Error> {
 
-    //replace with actual code
-    let agent_id: Uuid = Uuid::new_v4();
+    let register_agent_route = format!("{}/api/agents", consts::SERVER_URL);
+    let api_res: api::Response<api::AgentRegistered> = api_client
+        .post(register_agent_route.as_str())
+        .call()?
+        .into_json()?;
+
+    let agent_id = match (api_res.data, api_res.error) {
+        (None, None) => Err(Error::Api("Received invalid API response: data and error are both null.".to_string())),
+        (None, Some(err)) => Err(Error::Api(err.message)),
+        (Some(result_agent_registered), None) => Ok(result_agent_registered.id),
+        (Some(_), Some(_)) => {
+            Err(Error::Api("Received invalid api response: data and error are both non-null".to_string()))
+        },
+    }?;
+
     Ok(agent_id)
 }
 
