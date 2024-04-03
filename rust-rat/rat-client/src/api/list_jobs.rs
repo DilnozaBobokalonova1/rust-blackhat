@@ -5,11 +5,11 @@ use crate::{cli::jobs, config, Error};
 
 
 impl Client {
-    pub fn list_jobs(client: &Client) -> Result<Vec<Job>, Error> {
+    pub fn list_jobs(&self) -> Result<Vec<Job>, Error> {
 
         let jobs_list_route: String = format!("{}/api/jobs", config::SERVER_URL);
 
-        let api_response = client.http_client.get(jobs_list_route).send()?;
+        let api_response = self.http_client.get(jobs_list_route).send()?;
         let res: api::Response<api::JobsList> = api_response.json()?;
 
         // if let Some(jobs_data) = res.data {
