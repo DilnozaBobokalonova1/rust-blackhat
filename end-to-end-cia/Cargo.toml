@@ -1,0 +1,21 @@
+[workspace]
+
+members = [
+    "agent",
+    "client",
+    "common",
+    "server"
+]
+
+[profile.release]
+# link time optimization -> compiler will perform nice optimizations
+lto = true
+codegen-units = 1
+
+[profile.release.package.agent]
+# optimize for binary size
+opt-level = 'z'
+# again, to reduce the size of binary
+debug = false
+# disable debug assertions in release build
+debug-assertions = false
