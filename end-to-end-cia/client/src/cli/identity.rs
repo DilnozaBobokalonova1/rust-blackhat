@@ -16,5 +16,5 @@ pub fn run() {
 
     let encoded_public_key = base64::encode(identity_keypair.public.to_bytes());
     println!("public key: {}", encoded_public_key);
-
+    
 }
