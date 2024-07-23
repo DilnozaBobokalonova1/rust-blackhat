@@ -1,5 +1,7 @@
 # Compiled files
 /target/
+/rust-rat/target
+/rust-rat/target/.rustc_info.json
 
 Makefile
 
