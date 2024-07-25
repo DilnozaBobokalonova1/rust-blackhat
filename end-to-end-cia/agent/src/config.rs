@@ -18,7 +18,7 @@ pub struct Config {
     pub client_identity_public_key: ed25519_dalek::PublicKey,
 }
 
-#[derive(Debug)]
+#[derive(Debug, Clone, Deserialize, Serialize)]
 pub struct SerializedConfig {
     pub agent_id: Uuid,
     pub identity_private_key: [u8; ed25519_dalek::SECRET_KEY_LENGTH],

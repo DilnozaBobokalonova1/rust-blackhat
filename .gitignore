@@ -2,6 +2,7 @@
 /target/
 /rust-rat/target
 /rust-rat/target/.rustc_info.json
+/end-to-end-cia/target
 
 Makefile
 
