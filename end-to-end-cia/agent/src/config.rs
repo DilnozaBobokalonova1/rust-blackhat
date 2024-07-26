@@ -6,6 +6,7 @@ use uuid::Uuid;
 
 pub const SERVER_URL: &str = "http://localhost:8080";
 pub const AGENT_ID_FILE: &str = "di_01";
+/// created from ed25519 keypair
 pub const CLIENT_IDENTITY_PUBLIC_KEY: &str = "xQ6gstFLtTbDC06LDb5dAQap+fXVG45BnRZj0L5th+M="; // note: copying this over
 
 #[derive(Debug)]
