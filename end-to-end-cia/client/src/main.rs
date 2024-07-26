@@ -5,6 +5,7 @@ mod error;
 mod config;
 mod cli;
 
+pub use error::Error;
 
 fn main() {
     println!("Hello, world!");

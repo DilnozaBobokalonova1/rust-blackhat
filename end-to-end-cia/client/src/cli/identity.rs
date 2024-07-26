@@ -1,4 +1,3 @@
-
 /// Used to embed client's identity public key in agent
 /// so here we are generating an identity keypair for the client. 
 pub fn run() {
@@ -16,5 +15,5 @@ pub fn run() {
 
     let encoded_public_key = base64::encode(identity_keypair.public.to_bytes());
     println!("public key: {}", encoded_public_key);
-
+    
 }
