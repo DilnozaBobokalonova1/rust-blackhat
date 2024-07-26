@@ -1,4 +1,3 @@
-
 /// Used to embed client's identity public key in agent
 /// so here we are generating an identity keypair for the client. 
 pub fn run() {
