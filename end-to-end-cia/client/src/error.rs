@@ -6,6 +6,8 @@ pub enum Error {
     Internal(String),
     #[error("{0}")]
     NotFound(String),
+    #[error("Connection Error: {0}")]
+    ConnectionError(String),
 }
 
 impl std::convert::From<uuid::Error> for Error {

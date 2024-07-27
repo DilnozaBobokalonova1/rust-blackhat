@@ -1,6 +1,11 @@
 use std::time::Duration;
 use reqwest::{blocking::Client as BlockingClient, redirect};
 
+pub mod get_agent;
+pub mod get_job_result;
+pub mod create_job;
+pub mod list_agents;
+
 #[derive(Debug)]
 pub struct Client {
     pub http_client: BlockingClient,
