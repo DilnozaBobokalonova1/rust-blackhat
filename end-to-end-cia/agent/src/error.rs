@@ -20,7 +20,7 @@ impl std::convert::From<ureq::Error> for Error {
     fn from(err: ureq::Error) -> Self {
         match err {
             err @ ureq::Error::Status(_, _) => Error::Api(err.to_string()),
-            err @ ureq::Error::Transport(_) => Error::Transport(err)
+            err @ ureq::Error::Transport(_) => Error::Transport(err),
         }
     }
 }

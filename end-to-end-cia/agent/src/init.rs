@@ -1,6 +1,9 @@
 use crate::{config, Error};
 
-use common::{api::{self, RegisterAgent}, crypto};
+use common::{
+    api::{self, RegisterAgent},
+    crypto,
+};
 
 use ed25519_dalek::{Keypair, PublicKey, Signature, Signer};
 use rand::RngCore;
@@ -25,7 +28,7 @@ pub fn init(api_client: &ureq::Agent) -> Result<config::Config, Error> {
 
 /// This is the step required for the agent to register itself to the server by
 /// sending its identity_public_key, public_prekey and public_prekey_signature.
-/// 
+///
 /// Note: the long-term identity ed25519 keypair will be generated only once in
 /// the lifetime of an agent. And x25519 prekey is used for key-exchange for jobs.
 pub fn register(api_client: &ureq::Agent) -> Result<config::Config, Error> {
@@ -57,7 +60,8 @@ pub fn register(api_client: &ureq::Agent) -> Result<config::Config, Error> {
     }
 
     let client_public_key_bytes: Vec<u8> = base64::decode(config::CLIENT_IDENTITY_PUBLIC_KEY)?;
-    let client_identity_public_key: PublicKey = ed25519_dalek::PublicKey::from_bytes(&client_public_key_bytes)?;
+    let client_identity_public_key: PublicKey =
+        ed25519_dalek::PublicKey::from_bytes(&client_public_key_bytes)?;
 
     let conf = config::Config {
         agent_id: api_res.data.unwrap().id,
@@ -65,7 +69,7 @@ pub fn register(api_client: &ureq::Agent) -> Result<config::Config, Error> {
         identity_private_key: identity_keypair.secret,
         public_prekey,
         private_prekey,
-        client_identity_public_key
+        client_identity_public_key,
     };
 
     Ok(conf)
@@ -77,7 +81,8 @@ fn get_saved_agent_config() -> Result<Option<config::Config>, Error> {
     if agent_id_file.exists() {
         let agent_file_content = fs::read(agent_id_file)?;
 
-        let serialized_conf: config::SerializedConfig = serde_json::from_slice(&agent_file_content)?;
+        let serialized_conf: config::SerializedConfig =
+            serde_json::from_slice(&agent_file_content)?;
         let conf = serialized_conf.try_into()?;
         Ok(Some(conf))
     } else {
@@ -98,7 +103,7 @@ pub fn get_agent_config_file_path() -> Result<PathBuf, Error> {
 
 fn save_agent_config(conf: &config::Config) -> Result<(), Error> {
     let agent_config_file = get_agent_config_file_path()?;
-    let serialized_config: config::SerializedConfig = conf.into(); // thanks to into from Conf
+    let serialized_config: config::SerializedConfig = conf.into(); // thanks to <Into> from Conf
     let config_json = serde_json::to_string(&serialized_config)?;
 
     fs::write(agent_config_file, config_json.as_bytes())?;

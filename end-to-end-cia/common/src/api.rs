@@ -47,3 +47,47 @@ pub struct AgentRegistered {
     pub id: Uuid,
 }
 
+#[derive(Debug, Clone, Serialize, Deserialize)]
+pub struct JobPayload {
+    pub command: String,
+    pub args: Vec<String>,
+    pub result_ephemeral_public_key: [u8; crypto::X25519_PUBLIC_KEY_SIZE],
+}
+
+#[derive(Debug, Clone, Serialize, Deserialize)]
+pub struct Agent {
+    pub id: Uuid,
+    pub created_at: DateTime<Utc>,
+    pub last_seen_at: DateTime<Utc>,
+    pub identity_public_key: [u8; crypto::ED25519_PUBLIC_KEY_SIZE],
+    pub public_prekey: [u8; crypto::X25519_PUBLIC_KEY_SIZE],
+    pub public_prekey_signature: Vec<u8>,
+}
+
+#[derive(Debug, Clone, Serialize, Deserialize)]
+pub struct AgentsList {
+    pub agents: Vec<Agent>,
+}
+
+#[derive(Debug, Clone, Serialize, Deserialize)]
+pub struct AgentJob {
+    pub id: Uuid,
+    pub encrypted_job: Vec<u8>,
+    pub ephemeral_public_key: [u8; crypto::X25519_PUBLIC_KEY_SIZE],
+    pub nonce: [u8; crypto::XCHACHA20_POLY1305_NONCE_SIZE],
+    pub signature: Vec<u8>,
+}
+
+#[derive(Debug, Clone, Serialize, Deserialize)]
+pub struct JobResult {
+    pub output: String,
+}
+
+#[derive(Debug, Clone, Serialize, Deserialize)]
+pub struct UpdateJobResult {
+    pub job_id: Uuid,
+    pub encrypted_job_result: Vec<u8>,
+    pub ephemeral_public_key: [u8; crypto::X25519_PUBLIC_KEY_SIZE],
+    pub nonce: [u8; crypto::XCHACHA20_POLY1305_NONCE_SIZE],
+    pub signature: Vec<u8>,
+}
