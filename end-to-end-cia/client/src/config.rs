@@ -16,6 +16,9 @@ impl Config {
         let identity_private_key = ed25519_dalek::SecretKey::from_bytes(&private_key_bytes)?;
         let identity_public_key: ed25519_dalek::PublicKey = (&identity_private_key).into();
 
-        Ok(Config { identity_public_key, identity_private_key })
+        Ok(Config {
+            identity_public_key,
+            identity_private_key,
+        })
     }
 }

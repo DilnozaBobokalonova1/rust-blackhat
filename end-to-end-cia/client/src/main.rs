@@ -1,9 +1,9 @@
 use clap::{Arg, Command};
 
 mod api;
-mod error;
-mod config;
 mod cli;
+mod config;
+mod error;
 
 pub use error::Error;
 

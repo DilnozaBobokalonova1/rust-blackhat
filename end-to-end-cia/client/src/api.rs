@@ -1,8 +1,8 @@
-use std::time::Duration;
+use crate::{config, Error};
 use common::api::{self, Agent, AgentsList, JobResult};
 use reqwest::{blocking::Client as BlockingClient, redirect};
+use std::time::Duration;
 use uuid::Uuid;
-use crate::{config, Error};
 
 #[derive(Debug)]
 pub struct Client {
@@ -21,11 +21,11 @@ impl Client {
 
         Client {
             http_client,
-            server_url
+            server_url,
         }
     }
 
-    pub fn get_agent(&self, agent_id: &str) -> Result<Agent, Error> {
+    pub fn get_agent(&self, agent_id: Uuid) -> Result<Agent, Error> {
         let get_agent_route = format!("{}/api/agents/{}", config::SERVER_URL, agent_id);
         let res = self.http_client.get(get_agent_route).send()?;
         let api_res: api::Response<api::Agent> = res.json()?;
@@ -58,7 +58,6 @@ impl Client {
         }
 
         Ok(api_result.data.unwrap().job_id)
-
     }
 
     pub fn get_job_result(&self, job_id: Uuid) -> Result<Option<api::Job>, Error> {
