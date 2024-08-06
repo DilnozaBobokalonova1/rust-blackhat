@@ -115,3 +115,4 @@ pub struct CreateJob {
     pub nonce: [u8; crypto::XCHACHA20_POLY1305_NONCE_SIZE],
     pub signature: Vec<u8>,
 }
+
