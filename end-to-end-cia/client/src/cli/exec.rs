@@ -1,6 +1,6 @@
 use std::time::Duration;
 
-use crate::{api::Client, config::Config, Error};
+use crate::{api_v2::Client, config::Config, Error};
 use blake2::digest::Update;
 use blake2::digest::VariableOutput;
 use chacha20poly1305::{
