@@ -5,7 +5,7 @@ pub const IDENTITY_PRIVATE_KEY: &str = "wToLgDfjCxFijRA+YKi6T9j7bTc/4grwoTRJZJs5
 
 #[derive(Debug)]
 pub struct Config {
-    pub identity_public_key: ed25519_dalek::PublicKey,
+    pub identity_public_key: ed25519_dalek::PublicKey,  // used for signature
     pub identity_private_key: ed25519_dalek::SecretKey,
 }
 

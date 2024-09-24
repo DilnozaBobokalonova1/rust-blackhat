@@ -6,7 +6,7 @@ use uuid::Uuid;
 use crate::crypto;
 
 #[derive(Debug, Serialize, Deserialize)]
-pub struct Response<T: Serialize> {
+pub struct Response<T> {
     pub data: Option<T>,
     #[serde(skip_serializing_if = "Option::is_none")]
     pub error: Option<Error>,
